@@ -916,7 +916,7 @@ export default class EventTile extends React.Component<IProps, IState> {
 
     onPermalinkClicked = e => {
         // This allows the permalink to be opened in a new tab/window or copied as
-        // matrix.to, but also for it to enable routing within Element when clicked.
+        // matrix.to, but also for it to enable routing within Vnete when clicked.
         e.preventDefault();
         dis.dispatch({
             action: Action.ViewRoom,

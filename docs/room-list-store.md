@@ -5,11 +5,12 @@ It's so complicated it needs its own README.
 ![](img/RoomListStore2.png)
 
 Legend:
-* Orange = External event.
-* Purple = Deterministic flow.
-* Green = Algorithm definition.
-* Red = Exit condition/point.
-* Blue = Process definition.
+
+-   Orange = External event.
+-   Purple = Deterministic flow.
+-   Green = Algorithm definition.
+-   Red = Exit condition/point.
+-   Blue = Process definition.
 
 ## Algorithms involved
 
@@ -21,7 +22,6 @@ tag sorting defines how rooms within that tag get sorted, at the discretion of t
 Behaviour of the overall room list (sticky rooms, etc) are determined by the generically-named Algorithm
 class. Here is where much of the coordination from the room list store is done to figure out which list
 algorithm to call, instead of having all the logic in the room list store itself.
-
 
 Tag sorting is effectively the comparator supplied to the list algorithm. This gives the list algorithm
 the power to decide when and how to apply the tag sorting, if at all. For example, the importance algorithm,
@@ -55,7 +55,7 @@ timestamp contained within the event (generated server-side by the sender's serv
 
 This is the easiest of the algorithms to understand because it does essentially nothing. It imposes no
 behavioural changes over the tag sorting algorithm and is by far the simplest way to order a room list.
-Historically, it's been the only option in Element and extremely common in most chat applications due to
+Historically, it's been the only option in Vnete and extremely common in most chat applications due to
 its relative deterministic behaviour.
 
 ### List ordering algorithm: Importance
@@ -68,14 +68,14 @@ simply get the manual sorting algorithm applied to them with no further involvem
 algorithm. There are 4 categories: Red, Grey, Bold, and Idle. Each has their own definition based off
 relative (perceived) importance to the user:
 
-* **Red**: The room has unread mentions waiting for the user.
-* **Grey**: The room has unread notifications waiting for the user. Notifications are simply unread
-  messages which cause a push notification or badge count. Typically, this is the default as rooms get
-  set to 'All Messages'.
-* **Bold**: The room has unread messages waiting for the user. Essentially this is a grey room without
-  a badge/notification count (or 'Mentions Only'/'Muted').
-* **Idle**: No useful (see definition of useful above) activity has occurred in the room since the user
-  last read it.
+-   **Red**: The room has unread mentions waiting for the user.
+-   **Grey**: The room has unread notifications waiting for the user. Notifications are simply unread
+    messages which cause a push notification or badge count. Typically, this is the default as rooms get
+    set to 'All Messages'.
+-   **Bold**: The room has unread messages waiting for the user. Essentially this is a grey room without
+    a badge/notification count (or 'Mentions Only'/'Muted').
+-   **Idle**: No useful (see definition of useful above) activity has occurred in the room since the user
+    last read it.
 
 Conveniently, each tag gets ordered by those categories as presented: red rooms appear above grey, grey
 above bold, etc.

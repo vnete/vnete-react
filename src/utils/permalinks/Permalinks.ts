@@ -357,7 +357,7 @@ export function tryTransformPermalinkToLocalHref(permalink: string): string {
         return permalink;
     }
 
-    // A bit of a hack to convert permalinks of unknown origin to Element links
+    // A bit of a hack to convert permalinks of unknown origin to Vnete links
     try {
         const permalinkParts = parsePermalink(permalink);
         if (permalinkParts) {

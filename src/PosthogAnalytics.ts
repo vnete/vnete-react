@@ -200,10 +200,10 @@ export class PosthogAnalytics {
     private static getAnonymityFromSettings(): Anonymity {
         // determine the current anonymity level based on current user settings
 
-        // "Send anonymous usage data which helps us improve Element. This will use a cookie."
+        // "Send anonymous usage data which helps us improve Vnete. This will use a cookie."
         const analyticsOptIn = SettingsStore.getValue("analyticsOptIn", null, true);
 
-        // (proposed wording) "Send pseudonymous usage data which helps us improve Element. This will use a cookie."
+        // (proposed wording) "Send pseudonymous usage data which helps us improve Vnete. This will use a cookie."
         //
         // TODO: Currently, this is only a labs flag, for testing purposes.
         const pseudonumousOptIn = SettingsStore.getValue("feature_pseudonymous_analytics_opt_in", null, true);

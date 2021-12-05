@@ -14,7 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-const { assertNoToasts, acceptToast, rejectToast } = require("../usecases/toasts");
+const {
+    assertNoToasts,
+    acceptToast,
+    rejectToast,
+} = require("../usecases/toasts");
 
 module.exports = async function toastScenarios(alice, bob) {
     console.log(" checking and clearing toasts:");
@@ -25,7 +29,7 @@ module.exports = async function toastScenarios(alice, bob) {
     alice.log.done();
 
     alice.log.step(`accepts analytics toast`);
-    await acceptToast(alice, "Help us improve Element");
+    await acceptToast(alice, "Help us improve Vnete");
     await rejectToast(alice, "Testing small changes");
     alice.log.done();
 
@@ -40,7 +44,7 @@ module.exports = async function toastScenarios(alice, bob) {
     bob.log.done();
 
     bob.log.step(`reject analytics toast`);
-    await rejectToast(bob, "Help us improve Element");
+    await rejectToast(bob, "Help us improve Vnete");
     await rejectToast(bob, "Testing small changes");
     bob.log.done();
 

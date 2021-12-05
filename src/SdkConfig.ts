@@ -30,22 +30,22 @@ export interface ConfigOptions {
 
 export const DEFAULTS: ConfigOptions = {
     // Brand name of the app
-    brand: "Element",
+    brand: "Vnete",
     // URL to a page we show in an iframe to configure integrations
-    integrations_ui_url: "https://scalar.vector.im/",
+    integrations_ui_url: "https://dimension.vnete.net",
     // Base URL to the REST interface of the integrations server
-    integrations_rest_url: "https://scalar.vector.im/api",
+    integrations_rest_url: "https://dimension.vnete.net/api",
     // Where to send bug reports. If not specified, bugs cannot be sent.
-    bug_report_endpoint_url: null,
+    bug_report_endpoint_url: "https://webhook.vnete.net/api/v1/webhook",
     // Jitsi conference options
     jitsi: {
         // Default conference domain
-        preferredDomain: "jitsi.riot.im",
+        preferredDomain: "video.vnete.net",
     },
     desktopBuilds: {
         available: true,
-        logo: require("../res/img/element-desktop-logo.svg"),
-        url: "https://element.io/get-started",
+        logo: require("../res/img/vnete-desktop-logo.svg"),
+        url: "https://vnete.net",
     },
 };
 

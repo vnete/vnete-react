@@ -8,7 +8,7 @@ CONFIG_BACKUP=config.e2etests_backup.json
 cd $BASE_DIR
 
 if [ -f $PIDFILE ]; then
-    echo "Stopping Element server ..."
+    echo "Stopping Vnete server ..."
     PID=$(cat $PIDFILE)
     rm $PIDFILE
     kill $PID
