@@ -150,7 +150,7 @@ export default class HelpUserSettingsTab extends React.Component<IProps, IState>
                 <span className='mx_SettingsTab_subheading'>{ _t("Credits") }</span>
                 <ul>
                     <li>
-                        The <a href="themes/element/img/backgrounds/lake.jpg" rel="noreferrer noopener" target="_blank">
+                        The <a href="themes/element/img/backgrounds/field.jpg" rel="noreferrer noopener" target="_blank">
                             default cover photo
                         </a> is ©&nbsp;
                         <a href="https://www.flickr.com/golan" rel="noreferrer noopener" target="_blank">

@@ -106,7 +106,7 @@ const HomePage: React.FC<IProps> = ({ justRegistered = false }) => {
         introSection = <UserWelcomeTop />;
     } else {
         const brandingConfig = config.branding;
-        let logoUrl = "themes/element/img/logos/element-logo.svg";
+        let logoUrl = "themes/element/img/logos/vnete-logo.svg";
         if (brandingConfig && brandingConfig.authHeaderLogoUrl) {
             logoUrl = brandingConfig.authHeaderLogoUrl;
         }
