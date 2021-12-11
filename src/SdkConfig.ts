@@ -43,7 +43,7 @@ export const DEFAULTS: ConfigOptions = {
         preferredDomain: "video.vnete.net",
     },
     desktopBuilds: {
-        available: true,
+        available: false,
         logo: require("../res/img/vnete-desktop-logo.svg"),
         url: "https://vnete.net",
     },
