@@ -127,7 +127,7 @@ const escapeRegExp = function(string): string {
 };
 
 // Recognise URLs from both our local and official Vnete deployments.
-// Anyone else really should be using matrix.to.
+// Anyone else really should be using link.vnete.net.
 export const ELEMENT_URL_PATTERN =
     "^(?:https?://)?(?:" +
         escapeRegExp(window.location.host + window.location.pathname) + "|" +

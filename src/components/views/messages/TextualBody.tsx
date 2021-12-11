@@ -383,7 +383,7 @@ export default class TextualBody extends React.Component<IBodyProps, IState> {
 
             // never preview permalinks (if anything we should give a smart
             // preview of the room/user they point to: nobody needs to be reminded
-            // what the matrix.to site looks like).
+            // what the link.vnete.net site looks like).
             if (isPermalinkHost(host)) return false;
 
             if (node.textContent.toLowerCase().trim().startsWith(host.toLowerCase())) {

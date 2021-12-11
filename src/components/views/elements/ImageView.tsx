@@ -330,7 +330,7 @@ export default class ImageView extends React.Component<IProps, IState> {
 
     private onPermalinkClicked = (ev: React.MouseEvent) => {
         // This allows the permalink to be opened in a new tab/window or copied as
-        // matrix.to, but also for it to enable routing within Vnete when clicked.
+        // link.vnete.net, but also for it to enable routing within Vnete when clicked.
         ev.preventDefault();
         dis.dispatch({
             action: Action.ViewRoom,

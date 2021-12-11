@@ -16,11 +16,11 @@ limitations under the License.
 
 import PermalinkConstructor, { PermalinkParts } from "./PermalinkConstructor";
 
-export const host = "matrix.to";
+export const host = "link.vnete.net";
 export const baseUrl = `https://${host}`;
 
 /**
- * Generates matrix.to permalinks
+ * Generates link.vnete.net permalinks
  */
 export default class SpecPermalinkConstructor extends PermalinkConstructor {
     constructor() {

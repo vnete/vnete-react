@@ -407,7 +407,7 @@
 -   Add bubble highlight styling ([\#6582](https://github.com/matrix-org/matrix-react-sdk/pull/6582)). Fixes vector-im/element-web#18295 and vector-im/element-web#18295. Contributed by [SimonBrandner](https://github.com/SimonBrandner).
 -   [Release] Add config option to turn on in-room event sending timing metrics ([\#6773](https://github.com/matrix-org/matrix-react-sdk/pull/6773)).
 -   Create narrow mode for Composer ([\#6682](https://github.com/matrix-org/matrix-react-sdk/pull/6682)). Fixes vector-im/element-web#18533 and vector-im/element-web#18533.
--   Prefer matrix.to alias links over room id in spaces & share ([\#6745](https://github.com/matrix-org/matrix-react-sdk/pull/6745)). Fixes vector-im/element-web#18796 and vector-im/element-web#18796.
+-   Prefer link.vnete.net alias links over room id in spaces & share ([\#6745](https://github.com/matrix-org/matrix-react-sdk/pull/6745)). Fixes vector-im/element-web#18796 and vector-im/element-web#18796.
 -   Stop automatic playback of voice messages if a non-voice message is encountered ([\#6728](https://github.com/matrix-org/matrix-react-sdk/pull/6728)). Fixes vector-im/element-web#18850 and vector-im/element-web#18850.
 -   Show call length during a call ([\#6700](https://github.com/matrix-org/matrix-react-sdk/pull/6700)). Fixes vector-im/element-web#18566 and vector-im/element-web#18566. Contributed by [SimonBrandner](https://github.com/SimonBrandner).
 -   Serialize and retry mass-leave when leaving space ([\#6737](https://github.com/matrix-org/matrix-react-sdk/pull/6737)). Fixes vector-im/element-web#18789 and vector-im/element-web#18789.
@@ -4980,7 +4980,7 @@ disclosing this via Matrix's Security Disclosure Policy.
     [\#4261](https://github.com/matrix-org/matrix-react-sdk/pull/4261)
 -   Improve naming of Jitsi conferences
     [\#4251](https://github.com/matrix-org/matrix-react-sdk/pull/4251)
--   Handle matrix.to user permalink in-room rather than solo
+-   Handle link.vnete.net user permalink in-room rather than solo
     [\#4245](https://github.com/matrix-org/matrix-react-sdk/pull/4245)
 -   Fix: filter room list (again) by canonical and alternative aliases
     [\#4260](https://github.com/matrix-org/matrix-react-sdk/pull/4260)
@@ -9126,7 +9126,7 @@ No changes since rc.2
     [\#1936](https://github.com/matrix-org/matrix-react-sdk/pull/1936)
 -   only run e2e tests on PRs targeted on develop
     [\#2261](https://github.com/matrix-org/matrix-react-sdk/pull/2261)
--   Fix and test matrix.to alias permalinks
+-   Fix and test link.vnete.net alias permalinks
     [\#2254](https://github.com/matrix-org/matrix-react-sdk/pull/2254)
 -   click-through svg on tag tile context menu to make it less weird
     [\#2257](https://github.com/matrix-org/matrix-react-sdk/pull/2257)
@@ -9134,7 +9134,7 @@ No changes since rc.2
     [\#2256](https://github.com/matrix-org/matrix-react-sdk/pull/2256)
 -   Update babel-eslint to 8.1.1
     [\#2255](https://github.com/matrix-org/matrix-react-sdk/pull/2255)
--   Support routing matrix.to links to joinable rooms
+-   Support routing link.vnete.net links to joinable rooms
     [\#2250](https://github.com/matrix-org/matrix-react-sdk/pull/2250)
 -   Fix autoreplacement of ascii emoji
     [\#2253](https://github.com/matrix-org/matrix-react-sdk/pull/2253)
@@ -9809,7 +9809,7 @@ No changes since rc.2
     [\#1987](https://github.com/matrix-org/matrix-react-sdk/pull/1987)
 -   once command has a space, strict match instead of fuzzy match
     [\#1985](https://github.com/matrix-org/matrix-react-sdk/pull/1985)
--   Fix matrix.to URL RegExp
+-   Fix link.vnete.net URL RegExp
     [\#1986](https://github.com/matrix-org/matrix-react-sdk/pull/1986)
 -   Fix blank sticker picker
     [\#1984](https://github.com/matrix-org/matrix-react-sdk/pull/1984)
@@ -9829,7 +9829,7 @@ No changes since rc.2
     [\#1973](https://github.com/matrix-org/matrix-react-sdk/pull/1973)
 -   Track decryption success/failure rate with piwik
     [\#1949](https://github.com/matrix-org/matrix-react-sdk/pull/1949)
--   route matrix.to/#/+... links internally (not just group ids)
+-   route link.vnete.net/#/+... links internally (not just group ids)
     [\#1975](https://github.com/matrix-org/matrix-react-sdk/pull/1975)
 -   implement `hitting enter after Ctrl-K should switch to the first result`
     [\#1976](https://github.com/matrix-org/matrix-react-sdk/pull/1976)
@@ -12069,7 +12069,7 @@ No changes since rc.2
     [\#741](https://github.com/matrix-org/matrix-react-sdk/pull/741)
 -   Clarify "No devices" message
     [\#740](https://github.com/matrix-org/matrix-react-sdk/pull/740)
--   Change timestamp permalinks to matrix.to
+-   Change timestamp permalinks to link.vnete.net
     [\#735](https://github.com/matrix-org/matrix-react-sdk/pull/735)
 -   Fix resend bar and "send anyway" in UDD
     [\#734](https://github.com/matrix-org/matrix-react-sdk/pull/734)
@@ -12462,11 +12462,11 @@ No changes
     [\#545](https://github.com/matrix-org/matrix-react-sdk/pull/545)
 -   Show the error that occured when trying to reach scalar
     [\#543](https://github.com/matrix-org/matrix-react-sdk/pull/543)
--   Don't do URL previews for matrix.to
+-   Don't do URL previews for link.vnete.net
     [\#541](https://github.com/matrix-org/matrix-react-sdk/pull/541)
 -   Fix NPE in LoggedInView
     [\#540](https://github.com/matrix-org/matrix-react-sdk/pull/540)
--   Make room alias & user ID links matrix.to links
+-   Make room alias & user ID links link.vnete.net links
     [\#538](https://github.com/matrix-org/matrix-react-sdk/pull/538)
 -   Make MemberInfo use the matrixclient from the context
     [\#537](https://github.com/matrix-org/matrix-react-sdk/pull/537)
@@ -12726,7 +12726,7 @@ No changes
 
 -   re-add leave button in RoomSettings
 -   add /user URLs
--   recognise matrix.to links and other vector links
+-   recognise link.vnete.net links and other vector links
 -   fix linkify dependency
 -   fix avatar clicking in MemberInfo
 -   fix emojione sizing

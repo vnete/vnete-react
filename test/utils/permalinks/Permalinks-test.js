@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { MatrixClientPeg as peg } from '../../../src/MatrixClientPeg';
+import { MatrixClientPeg as peg } from "../../../src/MatrixClientPeg";
 import {
     makeGroupPermalink,
     makeRoomPermalink,
@@ -24,7 +24,7 @@ import {
 import * as testUtils from "../../test-utils";
 
 function mockRoom(roomId, members, serverACL) {
-    members.forEach(m => m.membership = "join");
+    members.forEach((m) => (m.membership = "join"));
     const powerLevelsUsers = members.reduce((pl, member) => {
         if (Number.isFinite(member.powerLevel)) {
             pl[member.userId] = member.powerLevel;
@@ -36,7 +36,7 @@ function mockRoom(roomId, members, serverACL) {
         roomId,
         getCanonicalAlias: () => null,
         getJoinedMembers: () => members,
-        getMember: (userId) => members.find(m => m.userId === userId),
+        getMember: (userId) => members.find((m) => m.userId === userId),
         currentState: {
             getStateEvents: (type, key) => {
                 if (key) {
@@ -65,13 +65,13 @@ function mockRoom(roomId, members, serverACL) {
     };
 }
 
-describe('Permalinks', function() {
-    beforeEach(function() {
+describe("Permalinks", function () {
+    beforeEach(function () {
         testUtils.stubClient();
         peg.get().credentials = { userId: "@test:example.com" };
     });
 
-    it('should pick no candidate servers when the room has no members', function() {
+    it("should pick no candidate servers when the room has no members", function () {
         const room = mockRoom("!fake:example.org", []);
         const creator = new RoomPermalinkCreator(room);
         creator.load();
@@ -79,7 +79,7 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates.length).toBe(0);
     });
 
-    it('should pick a candidate server for the highest power level user in the room', function() {
+    it("should pick a candidate server for the highest power level user in the room", function () {
         const room = mockRoom("!fake:example.org", [
             {
                 userId: "@alice:pl_50",
@@ -102,7 +102,7 @@ describe('Permalinks', function() {
         // we don't check the 2nd and 3rd servers because that is done by the next test
     });
 
-    it('should change candidate server when highest power level user leaves the room', function() {
+    it("should change candidate server when highest power level user leaves the room", function () {
         const member95 = {
             userId: "@alice:pl_95",
             powerLevel: 95,
@@ -129,7 +129,7 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates[0]).toBe("pl_95");
     });
 
-    it('should pick candidate servers based on user population', function() {
+    it("should pick candidate servers based on user population", function () {
         const room = mockRoom("!fake:example.org", [
             {
                 userId: "@alice:first",
@@ -165,7 +165,7 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates[2]).toBe("third");
     });
 
-    it('should pick prefer candidate servers with higher power levels', function() {
+    it("should pick prefer candidate servers with higher power levels", function () {
         const room = mockRoom("!fake:example.org", [
             {
                 userId: "@alice:first",
@@ -192,7 +192,7 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates[2]).toBe("third");
     });
 
-    it('should pick a maximum of 3 candidate servers', function() {
+    it("should pick a maximum of 3 candidate servers", function () {
         const room = mockRoom("!fake:example.org", [
             {
                 userId: "@alice:alpha",
@@ -221,7 +221,7 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates.length).toBe(3);
     });
 
-    it('should not consider IPv4 hosts', function() {
+    it("should not consider IPv4 hosts", function () {
         const room = mockRoom("!fake:example.org", [
             {
                 userId: "@alice:127.0.0.1",
@@ -234,7 +234,7 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates.length).toBe(0);
     });
 
-    it('should not consider IPv6 hosts', function() {
+    it("should not consider IPv6 hosts", function () {
         const room = mockRoom("!fake:example.org", [
             {
                 userId: "@alice:[::1]",
@@ -247,7 +247,7 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates.length).toBe(0);
     });
 
-    it('should not consider IPv4 hostnames with ports', function() {
+    it("should not consider IPv4 hostnames with ports", function () {
         const room = mockRoom("!fake:example.org", [
             {
                 userId: "@alice:127.0.0.1:8448",
@@ -260,7 +260,7 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates.length).toBe(0);
     });
 
-    it('should not consider IPv6 hostnames with ports', function() {
+    it("should not consider IPv6 hostnames with ports", function () {
         const room = mockRoom("!fake:example.org", [
             {
                 userId: "@alice:[::1]:8448",
@@ -273,7 +273,7 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates.length).toBe(0);
     });
 
-    it('should work with hostnames with ports', function() {
+    it("should work with hostnames with ports", function () {
         const room = mockRoom("!fake:example.org", [
             {
                 userId: "@alice:example.org:8448",
@@ -288,60 +288,72 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates[0]).toBe("example.org:8448");
     });
 
-    it('should not consider servers explicitly denied by ACLs', function() {
-        const room = mockRoom("!fake:example.org", [
+    it("should not consider servers explicitly denied by ACLs", function () {
+        const room = mockRoom(
+            "!fake:example.org",
+            [
+                {
+                    userId: "@alice:evilcorp.com",
+                    powerLevel: 100,
+                },
+                {
+                    userId: "@bob:chat.evilcorp.com",
+                    powerLevel: 0,
+                },
+            ],
             {
-                userId: "@alice:evilcorp.com",
-                powerLevel: 100,
-            },
-            {
-                userId: "@bob:chat.evilcorp.com",
-                powerLevel: 0,
-            },
-        ], {
-            deny: ["evilcorp.com", "*.evilcorp.com"],
-            allow: ["*"],
-        });
+                deny: ["evilcorp.com", "*.evilcorp.com"],
+                allow: ["*"],
+            }
+        );
         const creator = new RoomPermalinkCreator(room);
         creator.load();
         expect(creator._serverCandidates).toBeTruthy();
         expect(creator._serverCandidates.length).toBe(0);
     });
 
-    it('should not consider servers not allowed by ACLs', function() {
-        const room = mockRoom("!fake:example.org", [
+    it("should not consider servers not allowed by ACLs", function () {
+        const room = mockRoom(
+            "!fake:example.org",
+            [
+                {
+                    userId: "@alice:evilcorp.com",
+                    powerLevel: 100,
+                },
+                {
+                    userId: "@bob:chat.evilcorp.com",
+                    powerLevel: 0,
+                },
+            ],
             {
-                userId: "@alice:evilcorp.com",
-                powerLevel: 100,
-            },
-            {
-                userId: "@bob:chat.evilcorp.com",
-                powerLevel: 0,
-            },
-        ], {
-            deny: [],
-            allow: [], // implies "ban everyone"
-        });
+                deny: [],
+                allow: [], // implies "ban everyone"
+            }
+        );
         const creator = new RoomPermalinkCreator(room);
         creator.load();
         expect(creator._serverCandidates).toBeTruthy();
         expect(creator._serverCandidates.length).toBe(0);
     });
 
-    it('should consider servers not explicitly banned by ACLs', function() {
-        const room = mockRoom("!fake:example.org", [
+    it("should consider servers not explicitly banned by ACLs", function () {
+        const room = mockRoom(
+            "!fake:example.org",
+            [
+                {
+                    userId: "@alice:evilcorp.com",
+                    powerLevel: 100,
+                },
+                {
+                    userId: "@bob:chat.evilcorp.com",
+                    powerLevel: 0,
+                },
+            ],
             {
-                userId: "@alice:evilcorp.com",
-                powerLevel: 100,
-            },
-            {
-                userId: "@bob:chat.evilcorp.com",
-                powerLevel: 0,
-            },
-        ], {
-            deny: ["*.evilcorp.com"], // evilcorp.com is still good though
-            allow: ["*"],
-        });
+                deny: ["*.evilcorp.com"], // evilcorp.com is still good though
+                allow: ["*"],
+            }
+        );
         const creator = new RoomPermalinkCreator(room);
         creator.load();
         expect(creator._serverCandidates).toBeTruthy();
@@ -349,20 +361,24 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates[0]).toEqual("evilcorp.com");
     });
 
-    it('should consider servers not disallowed by ACLs', function() {
-        const room = mockRoom("!fake:example.org", [
+    it("should consider servers not disallowed by ACLs", function () {
+        const room = mockRoom(
+            "!fake:example.org",
+            [
+                {
+                    userId: "@alice:evilcorp.com",
+                    powerLevel: 100,
+                },
+                {
+                    userId: "@bob:chat.evilcorp.com",
+                    powerLevel: 0,
+                },
+            ],
             {
-                userId: "@alice:evilcorp.com",
-                powerLevel: 100,
-            },
-            {
-                userId: "@bob:chat.evilcorp.com",
-                powerLevel: 0,
-            },
-        ], {
-            deny: [],
-            allow: ["evilcorp.com"], // implies "ban everyone else"
-        });
+                deny: [],
+                allow: ["evilcorp.com"], // implies "ban everyone else"
+            }
+        );
         const creator = new RoomPermalinkCreator(room);
         creator.load();
         expect(creator._serverCandidates).toBeTruthy();
@@ -370,15 +386,17 @@ describe('Permalinks', function() {
         expect(creator._serverCandidates[0]).toEqual("evilcorp.com");
     });
 
-    it('should generate an event permalink for room IDs with no candidate servers', function() {
+    it("should generate an event permalink for room IDs with no candidate servers", function () {
         const room = mockRoom("!somewhere:example.org", []);
         const creator = new RoomPermalinkCreator(room);
         creator.load();
         const result = creator.forEvent("$something:example.com");
-        expect(result).toBe("https://matrix.to/#/!somewhere:example.org/$something:example.com");
+        expect(result).toBe(
+            "https://link.vnete.net/#/!somewhere:example.org/$something:example.com"
+        );
     });
 
-    it('should generate an event permalink for room IDs with some candidate servers', function() {
+    it("should generate an event permalink for room IDs with some candidate servers", function () {
         const room = mockRoom("!somewhere:example.org", [
             {
                 userId: "@alice:first",
@@ -392,10 +410,12 @@ describe('Permalinks', function() {
         const creator = new RoomPermalinkCreator(room);
         creator.load();
         const result = creator.forEvent("$something:example.com");
-        expect(result).toBe("https://matrix.to/#/!somewhere:example.org/$something:example.com?via=first&via=second");
+        expect(result).toBe(
+            "https://link.vnete.net/#/!somewhere:example.org/$something:example.com?via=first&via=second"
+        );
     });
 
-    it('should generate a room permalink for room IDs with some candidate servers', function() {
+    it("should generate a room permalink for room IDs with some candidate servers", function () {
         peg.get().getRoom = (roomId) => {
             return mockRoom(roomId, [
                 {
@@ -409,16 +429,18 @@ describe('Permalinks', function() {
             ]);
         };
         const result = makeRoomPermalink("!somewhere:example.org");
-        expect(result).toBe("https://matrix.to/#/!somewhere:example.org?via=first&via=second");
+        expect(result).toBe(
+            "https://link.vnete.net/#/!somewhere:example.org?via=first&via=second"
+        );
     });
 
-    it('should generate a room permalink for room aliases with no candidate servers', function() {
+    it("should generate a room permalink for room aliases with no candidate servers", function () {
         peg.get().getRoom = () => null;
         const result = makeRoomPermalink("#somewhere:example.org");
-        expect(result).toBe("https://matrix.to/#/#somewhere:example.org");
+        expect(result).toBe("https://link.vnete.net/#/#somewhere:example.org");
     });
 
-    it('should generate a room permalink for room aliases without candidate servers', function() {
+    it("should generate a room permalink for room aliases without candidate servers", function () {
         peg.get().getRoom = (roomId) => {
             return mockRoom(roomId, [
                 {
@@ -432,34 +454,40 @@ describe('Permalinks', function() {
             ]);
         };
         const result = makeRoomPermalink("#somewhere:example.org");
-        expect(result).toBe("https://matrix.to/#/#somewhere:example.org");
+        expect(result).toBe("https://link.vnete.net/#/#somewhere:example.org");
     });
 
-    it('should generate a user permalink', function() {
+    it("should generate a user permalink", function () {
         const result = makeUserPermalink("@someone:example.org");
-        expect(result).toBe("https://matrix.to/#/@someone:example.org");
+        expect(result).toBe("https://link.vnete.net/#/@someone:example.org");
     });
 
-    it('should generate a group permalink', function() {
+    it("should generate a group permalink", function () {
         const result = makeGroupPermalink("+community:example.org");
-        expect(result).toBe("https://matrix.to/#/+community:example.org");
+        expect(result).toBe("https://link.vnete.net/#/+community:example.org");
     });
 
-    it('should correctly parse room permalinks with a via argument', () => {
-        const result = parsePermalink("https://matrix.to/#/!room_id:server?via=some.org");
+    it("should correctly parse room permalinks with a via argument", () => {
+        const result = parsePermalink(
+            "https://link.vnete.net/#/!room_id:server?via=some.org"
+        );
         expect(result.roomIdOrAlias).toBe("!room_id:server");
         expect(result.viaServers).toEqual(["some.org"]);
     });
 
-    it('should correctly parse room permalink via arguments', () => {
-        const result = parsePermalink("https://matrix.to/#/!room_id:server?via=foo.bar&via=bar.foo");
+    it("should correctly parse room permalink via arguments", () => {
+        const result = parsePermalink(
+            "https://link.vnete.net/#/!room_id:server?via=foo.bar&via=bar.foo"
+        );
         expect(result.roomIdOrAlias).toBe("!room_id:server");
         expect(result.viaServers).toEqual(["foo.bar", "bar.foo"]);
     });
 
-    it('should correctly parse event permalink via arguments', () => {
-        const result = parsePermalink("https://matrix.to/#/!room_id:server/$event_id/some_thing_here/foobar" +
-            "?via=m1.org&via=m2.org");
+    it("should correctly parse event permalink via arguments", () => {
+        const result = parsePermalink(
+            "https://link.vnete.net/#/!room_id:server/$event_id/some_thing_here/foobar" +
+                "?via=m1.org&via=m2.org"
+        );
         expect(result.eventId).toBe("$event_id/some_thing_here/foobar");
         expect(result.roomIdOrAlias).toBe("!room_id:server");
         expect(result.viaServers).toEqual(["m1.org", "m2.org"]);

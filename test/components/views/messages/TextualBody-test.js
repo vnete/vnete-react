@@ -55,7 +55,9 @@ describe("<TextualBody />", () => {
         const wrapper = mount(<TextualBody mxEvent={ev} />);
         expect(wrapper.text()).toBe("* sender winks");
         const content = wrapper.find(".mx_EventTile_body");
-        expect(content.html()).toBe('<span class="mx_EventTile_body" dir="auto">winks</span>');
+        expect(content.html()).toBe(
+            '<span class="mx_EventTile_body" dir="auto">winks</span>'
+        );
     });
 
     it("renders m.notice correctly", () => {
@@ -81,7 +83,11 @@ describe("<TextualBody />", () => {
         const wrapper = mount(<TextualBody mxEvent={ev} />);
         expect(wrapper.text()).toBe(ev.getContent().body);
         const content = wrapper.find(".mx_EventTile_body");
-        expect(content.html()).toBe(`<span class="mx_EventTile_body" dir="auto">${ ev.getContent().body }</span>`);
+        expect(content.html()).toBe(
+            `<span class="mx_EventTile_body" dir="auto">${
+                ev.getContent().body
+            }</span>`
+        );
     });
 
     describe("renders plain-text m.text correctly", () => {
@@ -110,7 +116,11 @@ describe("<TextualBody />", () => {
             const wrapper = mount(<TextualBody mxEvent={ev} />);
             expect(wrapper.text()).toBe(ev.getContent().body);
             const content = wrapper.find(".mx_EventTile_body");
-            expect(content.html()).toBe(`<span class="mx_EventTile_body" dir="auto">${ ev.getContent().body }</span>`);
+            expect(content.html()).toBe(
+                `<span class="mx_EventTile_body" dir="auto">${
+                    ev.getContent().body
+                }</span>`
+            );
         });
 
         // If pills were rendered within a Portal/same shadow DOM then it'd be easier to test
@@ -129,9 +139,11 @@ describe("<TextualBody />", () => {
             const wrapper = mount(<TextualBody mxEvent={ev} />);
             expect(wrapper.text()).toBe(ev.getContent().body);
             const content = wrapper.find(".mx_EventTile_body");
-            expect(content.html()).toBe('<span class="mx_EventTile_body" dir="auto">' +
-                'Visit <a href="https://matrix.org/" class="linkified" target="_blank" rel="noreferrer noopener">' +
-                'https://matrix.org/</a></span>');
+            expect(content.html()).toBe(
+                '<span class="mx_EventTile_body" dir="auto">' +
+                    'Visit <a href="https://matrix.org/" class="linkified" target="_blank" rel="noreferrer noopener">' +
+                    "https://matrix.org/</a></span>"
+            );
         });
     });
 
@@ -159,7 +171,8 @@ describe("<TextualBody />", () => {
                     body: "foo *baz* __bar__ <del>del</del> <u>u</u>",
                     msgtype: "m.text",
                     format: "org.matrix.custom.html",
-                    formatted_body: "foo <em>baz</em> <strong>bar</strong> <del>del</del> <u>u</u>",
+                    formatted_body:
+                        "foo <em>baz</em> <strong>bar</strong> <del>del</del> <u>u</u>",
                 },
                 event: true,
             });
@@ -167,8 +180,11 @@ describe("<TextualBody />", () => {
             const wrapper = mount(<TextualBody mxEvent={ev} />);
             expect(wrapper.text()).toBe("foo baz bar del u");
             const content = wrapper.find(".mx_EventTile_body");
-            expect(content.html()).toBe('<span class="mx_EventTile_body markdown-body" dir="auto">' +
-                ev.getContent().formatted_body + '</span>');
+            expect(content.html()).toBe(
+                '<span class="mx_EventTile_body markdown-body" dir="auto">' +
+                    ev.getContent().formatted_body +
+                    "</span>"
+            );
         });
 
         it("spoilers get injected properly into the DOM", () => {
@@ -180,7 +196,8 @@ describe("<TextualBody />", () => {
                     body: "Hey [Spoiler for movie](mxc://someserver/somefile)",
                     msgtype: "m.text",
                     format: "org.matrix.custom.html",
-                    formatted_body: "Hey <span data-mx-spoiler=\"movie\">the movie was awesome</span>",
+                    formatted_body:
+                        'Hey <span data-mx-spoiler="movie">the movie was awesome</span>',
                 },
                 event: true,
             });
@@ -188,12 +205,14 @@ describe("<TextualBody />", () => {
             const wrapper = mount(<TextualBody mxEvent={ev} />);
             expect(wrapper.text()).toBe("Hey (movie) the movie was awesome");
             const content = wrapper.find(".mx_EventTile_body");
-            expect(content.html()).toBe('<span class="mx_EventTile_body markdown-body" dir="auto">' +
-                'Hey <span>' +
-                '<span class="mx_EventTile_spoiler">' +
-                '<span class="mx_EventTile_spoiler_reason">(movie)</span>&nbsp;' +
-                '<span class="mx_EventTile_spoiler_content"><span>the movie was awesome</span></span>' +
-                '</span></span></span>');
+            expect(content.html()).toBe(
+                '<span class="mx_EventTile_body markdown-body" dir="auto">' +
+                    "Hey <span>" +
+                    '<span class="mx_EventTile_spoiler">' +
+                    '<span class="mx_EventTile_spoiler_reason">(movie)</span>&nbsp;' +
+                    '<span class="mx_EventTile_spoiler_content"><span>the movie was awesome</span></span>' +
+                    "</span></span></span>"
+            );
         });
 
         // If pills were rendered within a Portal/same shadow DOM then it'd be easier to test
@@ -206,7 +225,8 @@ describe("<TextualBody />", () => {
                     body: "Hey User",
                     msgtype: "m.text",
                     format: "org.matrix.custom.html",
-                    formatted_body: "Hey <a href=\"https://matrix.to/#/@user:server\">Member</a>",
+                    formatted_body:
+                        'Hey <a href="https://link.vnete.net/#/@user:server">Member</a>',
                 },
                 event: true,
             });
@@ -214,12 +234,14 @@ describe("<TextualBody />", () => {
             const wrapper = mount(<TextualBody mxEvent={ev} />);
             expect(wrapper.text()).toBe("Hey Member");
             const content = wrapper.find(".mx_EventTile_body");
-            expect(content.html()).toBe('<span class="mx_EventTile_body markdown-body" dir="auto">' +
-                'Hey <span>' +
-                '<a class="mx_Pill mx_UserPill">' +
-                '<img class="mx_BaseAvatar mx_BaseAvatar_image" src="mxc://avatar.url/image.png" ' +
-                'style="width: 16px; height: 16px;" title="@member:domain.bla" alt="" aria-hidden="true">Member</a>' +
-                '</span></span>');
+            expect(content.html()).toBe(
+                '<span class="mx_EventTile_body markdown-body" dir="auto">' +
+                    "Hey <span>" +
+                    '<a class="mx_Pill mx_UserPill">' +
+                    '<img class="mx_BaseAvatar mx_BaseAvatar_image" src="mxc://avatar.url/image.png" ' +
+                    'style="width: 16px; height: 16px;" title="@member:domain.bla" alt="" aria-hidden="true">Member</a>' +
+                    "</span></span>"
+            );
         });
 
         it("pills do not appear for event permalinks", () => {
@@ -229,13 +251,13 @@ describe("<TextualBody />", () => {
                 user: "sender",
                 content: {
                     body:
-                        "An [event link](https://matrix.to/#/!ZxbRYPQXDXKGmDnJNg:example.com/" +
+                        "An [event link](https://link.vnete.net/#/!ZxbRYPQXDXKGmDnJNg:example.com/" +
                         "$16085560162aNpaH:example.com?via=example.com) with text",
                     msgtype: "m.text",
                     format: "org.matrix.custom.html",
                     formatted_body:
-                        "An <a href=\"https://matrix.to/#/!ZxbRYPQXDXKGmDnJNg:example.com/" +
-                        "$16085560162aNpaH:example.com?via=example.com\">event link</a> with text",
+                        'An <a href="https://link.vnete.net/#/!ZxbRYPQXDXKGmDnJNg:example.com/' +
+                        '$16085560162aNpaH:example.com?via=example.com">event link</a> with text',
                 },
                 event: true,
             });
@@ -245,9 +267,9 @@ describe("<TextualBody />", () => {
             const content = wrapper.find(".mx_EventTile_body");
             expect(content.html()).toBe(
                 '<span class="mx_EventTile_body markdown-body" dir="auto">' +
-                'An <a href="#/room/!ZxbRYPQXDXKGmDnJNg:example.com/' +
-                '$16085560162aNpaH:example.com?via=example.com" ' +
-                'rel="noreferrer noopener">event link</a> with text</span>',
+                    'An <a href="#/room/!ZxbRYPQXDXKGmDnJNg:example.com/' +
+                    '$16085560162aNpaH:example.com?via=example.com" ' +
+                    'rel="noreferrer noopener">event link</a> with text</span>'
             );
         });
 
@@ -258,32 +280,34 @@ describe("<TextualBody />", () => {
                 user: "sender",
                 content: {
                     body:
-                        "A [room link](https://matrix.to/#/!ZxbRYPQXDXKGmDnJNg:example.com" +
+                        "A [room link](https://link.vnete.net/#/!ZxbRYPQXDXKGmDnJNg:example.com" +
                         "?via=example.com&via=bob.com) with vias",
                     msgtype: "m.text",
                     format: "org.matrix.custom.html",
                     formatted_body:
-                        "A <a href=\"https://matrix.to/#/!ZxbRYPQXDXKGmDnJNg:example.com" +
-                        "?via=example.com&amp;via=bob.com\">room link</a> with vias",
+                        'A <a href="https://link.vnete.net/#/!ZxbRYPQXDXKGmDnJNg:example.com' +
+                        '?via=example.com&amp;via=bob.com">room link</a> with vias',
                 },
                 event: true,
             });
 
             const wrapper = mount(<TextualBody mxEvent={ev} />);
-            expect(wrapper.text()).toBe("A !ZxbRYPQXDXKGmDnJNg:example.com with vias");
+            expect(wrapper.text()).toBe(
+                "A !ZxbRYPQXDXKGmDnJNg:example.com with vias"
+            );
             const content = wrapper.find(".mx_EventTile_body");
             expect(content.html()).toBe(
                 '<span class="mx_EventTile_body markdown-body" dir="auto">' +
-                'A <span><a class="mx_Pill mx_RoomPill" href="#/room/!ZxbRYPQXDXKGmDnJNg:example.com' +
-                '?via=example.com&amp;via=bob.com"' +
-                '><img class="mx_BaseAvatar mx_BaseAvatar_image" ' +
-                'src="mxc://avatar.url/room.png" ' +
-                'style="width: 16px; height: 16px;" alt="" aria-hidden="true">' +
-                '!ZxbRYPQXDXKGmDnJNg:example.com</a></span> with vias</span>',
+                    'A <span><a class="mx_Pill mx_RoomPill" href="#/room/!ZxbRYPQXDXKGmDnJNg:example.com' +
+                    '?via=example.com&amp;via=bob.com"' +
+                    '><img class="mx_BaseAvatar mx_BaseAvatar_image" ' +
+                    'src="mxc://avatar.url/room.png" ' +
+                    'style="width: 16px; height: 16px;" alt="" aria-hidden="true">' +
+                    "!ZxbRYPQXDXKGmDnJNg:example.com</a></span> with vias</span>"
             );
         });
 
-        it('renders formatted body without html corretly', () => {
+        it("renders formatted body without html corretly", () => {
             const ev = mkEvent({
                 type: "m.room.message",
                 room: "room_id",
@@ -302,14 +326,14 @@ describe("<TextualBody />", () => {
             const content = wrapper.find(".mx_EventTile_body");
             expect(content.html()).toBe(
                 '<span class="mx_EventTile_body" dir="auto">' +
-                'escaped *markdown*' +
-                '</span>',
+                    "escaped *markdown*" +
+                    "</span>"
             );
         });
     });
 
     it("renders url previews correctly", () => {
-        languageHandler.setMissingEntryGenerator(key => key.split('|', 2)[1]);
+        languageHandler.setMissingEntryGenerator((key) => key.split("|", 2)[1]);
 
         MatrixClientPeg.matrixClient = {
             getRoom: () => mkStubRoom("room_id"),
@@ -331,7 +355,13 @@ describe("<TextualBody />", () => {
             event: true,
         });
 
-        const wrapper = mount(<TextualBody mxEvent={ev} showUrlPreview={true} onHeightChanged={() => {}} />);
+        const wrapper = mount(
+            <TextualBody
+                mxEvent={ev}
+                showUrlPreview={true}
+                onHeightChanged={() => {}}
+            />
+        );
         expect(wrapper.text()).toBe(ev.getContent().body);
 
         let widgets = wrapper.find("LinkPreviewGroup");
@@ -353,19 +383,26 @@ describe("<TextualBody />", () => {
         });
         ev.makeReplaced(ev2);
 
-        wrapper.setProps({
-            mxEvent: ev,
-            replacingEventId: ev.getId(),
-        }, () => {
-            expect(wrapper.text()).toBe(ev2.getContent()["m.new_content"].body + "(edited)");
+        wrapper.setProps(
+            {
+                mxEvent: ev,
+                replacingEventId: ev.getId(),
+            },
+            () => {
+                expect(wrapper.text()).toBe(
+                    ev2.getContent()["m.new_content"].body + "(edited)"
+                );
 
-            // XXX: this is to give TextualBody enough time for state to settle
-            wrapper.setState({}, () => {
-                widgets = wrapper.find("LinkPreviewGroup");
-                // at this point we should have exactly two links (not the matrix.org one anymore)
-                expect(widgets.at(0).prop("links")).toEqual(["https://vector.im/", "https://riot.im/"]);
-            });
-        });
+                // XXX: this is to give TextualBody enough time for state to settle
+                wrapper.setState({}, () => {
+                    widgets = wrapper.find("LinkPreviewGroup");
+                    // at this point we should have exactly two links (not the matrix.org one anymore)
+                    expect(widgets.at(0).prop("links")).toEqual([
+                        "https://vector.im/",
+                        "https://riot.im/",
+                    ]);
+                });
+            }
+        );
     });
 });
-
