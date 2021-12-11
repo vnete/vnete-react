@@ -59,7 +59,7 @@ export default class CommunityProvider extends AutocompleteProvider {
         limit = -1,
     ): Promise<ICompletion[]> {
         // Disable autocompletions when composing commands because of various issues
-        // (see https://github.com/vector-im/element-web/issues/4762)
+        // (see https://github.com/vnete/vnete-chat/issues/4762)
         if (/^(\/join|\/leave)/.test(query)) {
             return [];
         }

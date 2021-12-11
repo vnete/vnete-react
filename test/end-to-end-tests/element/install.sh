@@ -7,7 +7,7 @@ if [ -d $BASE_DIR/element-web ]; then
     exit
 fi
 
-curl -L https://github.com/vector-im/element-web/archive/${ELEMENT_BRANCH}.zip --output element.zip
+curl -L https://github.com/vnete/vnete-chat/archive/${ELEMENT_BRANCH}.zip --output element.zip
 unzip -q element.zip
 rm element.zip
 mv element-web-${ELEMENT_BRANCH} element-web

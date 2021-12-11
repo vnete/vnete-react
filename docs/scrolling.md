@@ -11,15 +11,15 @@ ScrollPanel supports a mode to prevent it shrinking. This is used to prevent a j
 
 ## BACAT (Bottom-Aligned, Clipped-At-Top) scrolling
 
-BACAT scrolling implements a different way of restoring the scroll position in the timeline while tiles out of view are changing height or tiles are being added or removed. It was added in https://github.com/matrix-org/matrix-react-sdk/pull/2842.
+BACAT scrolling implements a different way of restoring the scroll position in the timeline while tiles out of view are changing height or tiles are being added or removed. It was added in https://github.com/vnete/vnete-react/pull/2842.
 
-The motivation for the changes is having noticed that setting scrollTop while scrolling tends to not work well, with it interrupting ongoing scrolling and also querying scrollTop reporting outdated values and consecutive scroll adjustments cancelling each out previous ones. This seems to be worse on macOS than other platforms, presumably because of a higher resolution in scroll events there. Also see https://github.com/vector-im/element-web/issues/528. The BACAT approach allows to only have to change the scroll offset when adding or removing tiles.
+The motivation for the changes is having noticed that setting scrollTop while scrolling tends to not work well, with it interrupting ongoing scrolling and also querying scrollTop reporting outdated values and consecutive scroll adjustments cancelling each out previous ones. This seems to be worse on macOS than other platforms, presumably because of a higher resolution in scroll events there. Also see https://github.com/vnete/vnete-chat/issues/528. The BACAT approach allows to only have to change the scroll offset when adding or removing tiles.
 
 The approach taken instead is to vertically align the timeline tiles to the bottom of the scroll container (using flexbox) and give the timeline inside the scroll container an explicit height, initially set to a multiple of the PAGE_SIZE (400px at time of writing) as needed by the content. When scrolled up, we can compensate for anything that grew below the viewport by changing the height of the timeline to maintain what's currently visible in the viewport without adjusting the scrollTop and hence without jumping.
 
 For anything above the viewport growing or shrinking, we don't need to do anything as the timeline is bottom-aligned. We do need to update the height manually to keep all content visible as more is loaded. To maintain scroll position after the portion above the viewport changes height, we need to set the scrollTop, as we cannot balance it out with more height changes. We do this 100ms after the user has stopped scrolling, so setting scrollTop has not nasty side-effects.
 
-As of https://github.com/matrix-org/matrix-react-sdk/pull/4166, we are scrolling to compensate for height changes by calling `scrollBy(0, x)` rather than reading and than setting `scrollTop`, as reading `scrollTop` can (again, especially on macOS) easily return values that are out of sync with what is on the screen, probably because scrolling can be done [off the main thread](https://wiki.mozilla.org/Platform/GFX/APZ) in some circumstances. This seems to further prevent jumps.
+As of https://github.com/vnete/vnete-react/pull/4166, we are scrolling to compensate for height changes by calling `scrollBy(0, x)` rather than reading and than setting `scrollTop`, as reading `scrollTop` can (again, especially on macOS) easily return values that are out of sync with what is on the screen, probably because scrolling can be done [off the main thread](https://wiki.mozilla.org/Platform/GFX/APZ) in some circumstances. This seems to further prevent jumps.
 
 ### How does it work?
 

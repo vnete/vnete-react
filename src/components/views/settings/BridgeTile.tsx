@@ -35,7 +35,7 @@ interface IProps {
 }
 
 /**
- * This should match https://github.com/matrix-org/matrix-doc/blob/hs/msc-bridge-inf/proposals/2346-bridge-info-state-event.md#mbridge
+ * This should match https://github.com/vnete/vnete-doc/blob/hs/msc-bridge-inf/proposals/2346-bridge-info-state-event.md#mbridge
  */
 interface IBridgeStateEvent {
     bridgebot: string;

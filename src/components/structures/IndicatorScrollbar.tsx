@@ -152,7 +152,7 @@ export default class IndicatorScrollbar extends React.Component<IProps, IState> 
             }
 
             // don't mess with the horizontal scroll for trackpad users
-            // See https://github.com/vector-im/element-web/issues/10005
+            // See https://github.com/vnete/vnete-chat/issues/10005
             if (this.likelyTrackpadUser) {
                 return;
             }

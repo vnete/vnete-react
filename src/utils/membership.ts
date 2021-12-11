@@ -72,7 +72,7 @@ export function getEffectiveMembership(membership: string): EffectiveMembership 
     if (membership === 'invite') {
         return EffectiveMembership.Invite;
     } else if (membership === 'join') {
-        // TODO: Include knocks? Update docs as needed in the enum. https://github.com/vector-im/element-web/issues/14237
+        // TODO: Include knocks? Update docs as needed in the enum. https://github.com/vnete/vnete-chat/issues/14237
         return EffectiveMembership.Join;
     } else {
         // Probably a leave, kick, or ban

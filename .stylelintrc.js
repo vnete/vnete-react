@@ -20,7 +20,7 @@ module.exports = {
         "no-descending-specificity": null,
         "no-empty-first-line": true,
         "scss/at-rule-no-unknown": [true, {
-            // https://github.com/vector-im/element-web/issues/10544
+            // https://github.com/vnete/vnete-chat/issues/10544
             "ignoreAtRules": ["define-mixin"],
         }],
     }

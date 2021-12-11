@@ -91,7 +91,7 @@ const stateEventTileTypes = {
     [EventType.RoomPowerLevels]: 'messages.TextualEvent',
     [EventType.RoomPinnedEvents]: 'messages.TextualEvent',
     [EventType.RoomServerAcl]: 'messages.TextualEvent',
-    // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+    // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
     'im.vector.modular.widgets': 'messages.TextualEvent',
     [WIDGET_LAYOUT_EVENT_TYPE]: 'messages.TextualEvent',
     [EventType.RoomTombstone]: 'messages.TextualEvent',
@@ -160,7 +160,7 @@ export function getHandlerTile(ev) {
         }
     }
 
-    // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+    // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
     if (type === "im.vector.modular.widgets") {
         let type = ev.getContent()['type'];
         if (!type) {
@@ -814,7 +814,7 @@ export default class EventTile extends React.Component<IProps, IState> {
             // events, so for now we mount it for all events. Without it, the
             // animation will start from the top of the timeline (because it
             // lost its container).
-            // See also https://github.com/vector-im/element-web/issues/17561
+            // See also https://github.com/vnete/vnete-chat/issues/17561
             return (
                 <div className="mx_EventTile_msgOption">
                     <span className="mx_EventTile_readAvatars" />

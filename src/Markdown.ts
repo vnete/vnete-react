@@ -124,7 +124,7 @@ export default class Markdown {
      * <a href="https://my">https://my</a><b>weird-link</b><a href="https://domain.domain.com">domain.domain.com</a>
      * This method makes it so the link gets properly modified to a version where it is
      * not emphasised until it actually ends.
-     * See: https://github.com/vector-im/element-web/issues/4674
+     * See: https://github.com/vnete/vnete-chat/issues/4674
      * @param parsed
      */
     private repairLinks(parsed: commonmark.Node) {
@@ -238,7 +238,7 @@ export default class Markdown {
             // puts softbreaks in for multiple lines in a blockquote,
             // so if these are just newline characters then the
             // block quote ends up all on one line
-            // (https://github.com/vector-im/element-web/issues/3154)
+            // (https://github.com/vnete/vnete-chat/issues/3154)
             softbreak: '<br />',
         }) as CommonmarkHtmlRendererInternal;
 
@@ -313,7 +313,7 @@ export default class Markdown {
      * Render the markdown message to plain text. That is, essentially
      * just remove any backslashes escaping what would otherwise be
      * markdown syntax
-     * (to fix https://github.com/vector-im/element-web/issues/2870).
+     * (to fix https://github.com/vnete/vnete-chat/issues/2870).
      *
      * N.B. this does **NOT** render arbitrary MD to plain text - only MD
      * which has no formatting.  Otherwise it emits HTML(!).

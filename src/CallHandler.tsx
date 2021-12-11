@@ -383,7 +383,7 @@ export default class CallHandler extends EventEmitter {
                     // This is usually because the user hasn't interacted with the document,
                     // or chrome doesn't think so and is denying the request. Not sure what
                     // we can really do here...
-                    // https://github.com/vector-im/element-web/issues/7657
+                    // https://github.com/vnete/vnete-chat/issues/7657
                     logger.log("Unable to play audio clip", e);
                 }
             };
@@ -997,7 +997,7 @@ export default class CallHandler extends EventEmitter {
             // Create conference ID from room ID
             // For compatibility with Jitsi, use base32 without padding.
             // More details here:
-            // https://github.com/matrix-org/prosody-mod-auth-matrix-user-verification
+            // https://github.com/vnete/prosody-mod-auth-matrix-user-verification
             confId = base32.stringify(Buffer.from(roomId), { pad: false });
         } else {
             // Create a random conference ID

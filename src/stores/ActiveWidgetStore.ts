@@ -59,7 +59,7 @@ export default class ActiveWidgetStore extends EventEmitter {
         // Everything else relies on views listening for events and calling setters
         // on this class which is terrible. This store should just listen for events
         // and keep itself up to date.
-        // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+        // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
         if (ev.getType() !== 'im.vector.modular.widgets') return;
 
         if (ev.getStateKey() === this.persistentWidgetId) {

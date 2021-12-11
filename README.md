@@ -11,7 +11,7 @@ a 'skin'. A skin provides:
 -   The containing application
 -   Zero or more 'modules' containing non-UI functionality
 
-As of Aug 2018, the only skin that exists is [`vector-im/element-web`](https://github.com/vector-im/element-web/); it and
+As of Aug 2018, the only skin that exists is [`vector-im/element-web`](https://github.com/vnete/vnete-chat/); it and
 `matrix-org/matrix-react-sdk` should effectively
 be considered as a single project (for instance, matrix-react-sdk bugs
 are currently filed against vector-im/element-web rather than this project).
@@ -20,34 +20,24 @@ are currently filed against vector-im/element-web rather than this project).
 
 [![Translation status](https://translate.element.io/widgets/element-web/-/multi-auto.svg)](https://translate.element.io/engage/element-web/?utm_source=widget)
 
-# Developer Guide
-
-Platform Targets:
-
--   Chrome, Firefox and Safari.
--   WebRTC features (VoIP and Video calling) are only available in Chrome & Firefox.
--   Mobile Web is not currently a target platform - instead please use the native
-    iOS (https://github.com/matrix-org/matrix-ios-kit) and Android
-    (https://github.com/matrix-org/matrix-android-sdk2) SDKs.
-
 All code lands on the `develop` branch - `master` is only used for stable releases.
 **Please file PRs against `develop`!!**
 
 Please follow the standard Matrix contributor's guide:
-https://github.com/matrix-org/matrix-js-sdk/blob/develop/CONTRIBUTING.md
+https://github.com/vnete/vnete-js/blob/develop/CONTRIBUTING.md
 
 Please follow the Matrix JS/React code style as per:
-https://github.com/matrix-org/matrix-react-sdk/blob/master/code_style.md
+https://github.com/vnete/vnete-react/blob/master/code_style.md
 
 Code should be committed as follows:
 
--   All new components: https://github.com/matrix-org/matrix-react-sdk/tree/master/src/components
--   Vnete-specific components: https://github.com/vector-im/element-web/tree/master/src/components
+-   All new components: https://github.com/vnete/vnete-react/tree/master/src/components
+-   Vnete-specific components: https://github.com/vnete/vnete-chat/tree/master/src/components
     -   In practice, `matrix-react-sdk` is still evolving so fast that the maintenance
         burden of customising and overriding these components for Vnete can seriously
         impede development. So right now, there should be very few (if any) customisations for Vnete.
--   CSS: https://github.com/matrix-org/matrix-react-sdk/tree/master/res/css
--   Theme specific CSS & resources: https://github.com/matrix-org/matrix-react-sdk/tree/master/res/themes
+-   CSS: https://github.com/vnete/vnete-react/tree/master/res/css
+-   Theme specific CSS & resources: https://github.com/vnete/vnete-react/tree/master/res/themes
 
 React components in matrix-react-sdk come in two different flavours:
 'structures' and 'views'. Structures are stateful components which handle the
@@ -72,11 +62,11 @@ practices that anyone working with the SDK needs to be be aware of and uphold:
 
 -   The view's CSS file MUST have the same name (e.g. view/rooms/MessageTile.css).
     CSS for matrix-react-sdk currently resides in
-    https://github.com/vector-im/element-web/tree/master/src/skins/vector/css/matrix-react-sdk.
+    https://github.com/vnete/vnete-chat/tree/master/src/skins/vector/css/matrix-react-sdk.
 
 -   Per-view CSS is optional - it could choose to inherit all its styling from
     the context of the rest of the app, although this is unusual for any but
--   Theme specific CSS & resources: https://github.com/matrix-org/matrix-react-sdk/tree/master/res/themes
+-   Theme specific CSS & resources: https://github.com/vnete/vnete-react/tree/master/res/themes
     structural components (lacking presentation logic) and the simplest view
     components.
 
@@ -125,7 +115,7 @@ from it.
 
 # Github Issues
 
-All issues should be filed under https://github.com/vector-im/element-web/issues
+All issues should be filed under https://github.com/vnete/vnete-chat/issues
 for now.
 
 # Development
@@ -137,12 +127,12 @@ guide](https://classic.yarnpkg.com/docs/install) if you do not have it
 already. This project has not yet been migrated to Yarn 2, so please ensure
 `yarn --version` shows a version from the 1.x series.
 
-`matrix-react-sdk` depends on [`matrix-js-sdk`](https://github.com/matrix-org/matrix-js-sdk). To make use of changes in the
+`matrix-react-sdk` depends on [`matrix-js-sdk`](https://github.com/vnete/vnete-js). To make use of changes in the
 latter and to ensure tests run against the develop branch of `matrix-js-sdk`,
 you should set up `matrix-js-sdk`:
 
 ```bash
-git clone https://github.com/matrix-org/matrix-js-sdk
+git clone https://github.com/vnete/vnete-js
 cd matrix-js-sdk
 git checkout develop
 yarn link
@@ -152,7 +142,7 @@ yarn install
 Then check out `matrix-react-sdk` and pull in dependencies:
 
 ```bash
-git clone https://github.com/matrix-org/matrix-react-sdk
+git clone https://github.com/vnete/vnete-react
 cd matrix-react-sdk
 git checkout develop
 yarn link matrix-js-sdk
@@ -176,4 +166,4 @@ yarn test
 ## End-to-End tests
 
 Make sure you've got your Vnete development server running (by doing `yarn start` in element-web), and then in this project, run `yarn run e2etests`.
-See [`test/end-to-end-tests/README.md`](https://github.com/matrix-org/matrix-react-sdk/blob/develop/test/end-to-end-tests/README.md) for more information.
+See [`test/end-to-end-tests/README.md`](https://github.com/vnete/vnete-react/blob/develop/test/end-to-end-tests/README.md) for more information.

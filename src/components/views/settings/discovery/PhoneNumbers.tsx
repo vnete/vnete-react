@@ -90,7 +90,7 @@ export class PhoneNumber extends React.Component<IPhoneNumberProps, IPhoneNumber
                 // XXX: Sydent will accept a number without country code if you add
                 // a leading plus sign to a number in E.164 format (which the 3PID
                 // address is), but this goes against the spec.
-                // See https://github.com/matrix-org/matrix-doc/issues/2222
+                // See https://github.com/vnete/vnete-doc/issues/2222
                 await task.bindMsisdn(null, `+${address}`);
                 this.setState({
                     continueDisabled: false,
@@ -128,7 +128,7 @@ export class PhoneNumber extends React.Component<IPhoneNumberProps, IPhoneNumber
             // XXX: Sydent will accept a number without country code if you add
             // a leading plus sign to a number in E.164 format (which the 3PID
             // address is), but this goes against the spec.
-            // See https://github.com/matrix-org/matrix-doc/issues/2222
+            // See https://github.com/vnete/vnete-doc/issues/2222
             if (bind) {
                 await task.bindMsisdn(null, `+${address}`);
             } else {

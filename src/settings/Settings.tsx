@@ -703,13 +703,13 @@ export const SETTINGS: {[setting: string]: ISetting} = {
             deny: [],
         },
     },
-    // TODO: Remove setting: https://github.com/vector-im/element-web/issues/14373
+    // TODO: Remove setting: https://github.com/vnete/vnete-chat/issues/14373
     "RoomList.orderAlphabetically": {
         supportedLevels: LEVELS_ACCOUNT_SETTINGS,
         displayName: _td("Order rooms by name"),
         default: false,
     },
-    // TODO: Remove setting: https://github.com/vector-im/element-web/issues/14373
+    // TODO: Remove setting: https://github.com/vnete/vnete-chat/issues/14373
     "RoomList.orderByImportance": {
         supportedLevels: LEVELS_ACCOUNT_SETTINGS,
         displayName: _td("Show rooms with unread notifications first"),

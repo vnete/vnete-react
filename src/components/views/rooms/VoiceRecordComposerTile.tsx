@@ -100,7 +100,7 @@ export default class VoiceRecordComposerTile extends React.PureComponent<IProps,
                 },
 
                 // MSC1767 + Ideals of MSC2516 as MSC3245
-                // https://github.com/matrix-org/matrix-doc/pull/3245
+                // https://github.com/vnete/vnete-doc/pull/3245
                 "org.matrix.msc1767.text": "Voice message",
                 "org.matrix.msc1767.file": {
                     url: upload.mxc,
@@ -112,7 +112,7 @@ export default class VoiceRecordComposerTile extends React.PureComponent<IProps,
                 "org.matrix.msc1767.audio": {
                     duration: Math.round(this.state.recorder.durationSeconds * 1000),
 
-                    // https://github.com/matrix-org/matrix-doc/pull/3246
+                    // https://github.com/vnete/vnete-doc/pull/3246
                     waveform: this.state.recorder.getPlayback().thumbnailWaveform.map(v => Math.round(v * 1024)),
                 },
                 "org.matrix.msc3245.voice": {}, // No content, this is a rendering hint

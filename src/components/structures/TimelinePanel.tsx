@@ -1265,7 +1265,7 @@ class TimelinePanel extends React.Component<IProps, IState> {
             if (!timeline) {
                 // Somehow, it seems to be possible for live events to not have
                 // a timeline, even though that should not happen. :(
-                // https://github.com/vector-im/element-web/issues/12120
+                // https://github.com/vnete/vnete-chat/issues/12120
                 logger.warn(
                     `Event ${events[i].getId()} in room ${room.roomId} is live, ` +
                     `but it does not have a timeline`,

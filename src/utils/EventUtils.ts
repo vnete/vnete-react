@@ -160,7 +160,7 @@ export function getEventDisplayInfo(mxEvent: MatrixEvent): {
 
 export function isVoiceMessage(mxEvent: MatrixEvent): boolean {
     const content = mxEvent.getContent();
-    // MSC2516 is a legacy identifier. See https://github.com/matrix-org/matrix-doc/pull/3245
+    // MSC2516 is a legacy identifier. See https://github.com/vnete/vnete-doc/pull/3245
     return (
         !!content['org.matrix.msc2516.voice'] ||
         !!content['org.matrix.msc3245.voice']

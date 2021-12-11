@@ -741,7 +741,7 @@ const stateHandlers: IHandlers = {
     [EventType.RoomGuestAccess]: textForGuestAccessEvent,
     'm.room.related_groups': textForRelatedGroupsEvent,
 
-    // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+    // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
     'im.vector.modular.widgets': textForWidgetEvent,
     [WIDGET_LAYOUT_EVENT_TYPE]: textForWidgetLayoutEvent,
 };

@@ -118,7 +118,7 @@ export class PasswordAuthEntry extends React.Component<IAuthEntryProps, IPasswor
         this.props.submitAuthDict({
             type: AuthType.Password,
             // TODO: Remove `user` once servers support proper UIA
-            // See https://github.com/vector-im/element-web/issues/10312
+            // See https://github.com/vnete/vnete-chat/issues/10312
             user: this.props.matrixClient.credentials.userId,
             identifier: {
                 type: "m.id.user",
@@ -558,8 +558,8 @@ export class MsisdnAuthEntry extends React.Component<IMsisdnAuthEntryProps, IMsi
                 this.props.submitAuthDict({
                     type: AuthType.Msisdn,
                     // TODO: Remove `threepid_creds` once servers support proper UIA
-                    // See https://github.com/vector-im/element-web/issues/10312
-                    // See https://github.com/matrix-org/matrix-doc/issues/2220
+                    // See https://github.com/vnete/vnete-chat/issues/10312
+                    // See https://github.com/vnete/vnete-doc/issues/2220
                     threepid_creds: creds,
                     threepidCreds: creds,
                 });

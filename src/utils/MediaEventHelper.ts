@@ -24,7 +24,7 @@ import { EventType, MsgType } from "matrix-js-sdk/src/@types/event";
 
 import { logger } from "matrix-js-sdk/src/logger";
 
-// TODO: We should consider caching the blobs. https://github.com/vector-im/element-web/issues/17192
+// TODO: We should consider caching the blobs. https://github.com/vnete/vnete-chat/issues/17192
 
 export class MediaEventHelper implements IDestroyable {
     // Either an HTTP or Object URL (when encrypted) to the media.

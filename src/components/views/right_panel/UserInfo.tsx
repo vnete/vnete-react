@@ -616,7 +616,7 @@ const RedactMessagesButton: React.FC<IBaseProps> = ({ member }) => {
                 if (event.getSender() === userId && !event.isRedacted() && !event.isRedaction() &&
                     event.getType() !== EventType.RoomCreate &&
                     // Don't redact ACLs because that'll obliterate the room
-                    // See https://github.com/matrix-org/synapse/issues/4042 for details.
+                    // See https://github.com/vnete/vnete-server/issues/4042 for details.
                     event.getType() !== EventType.RoomServerAcl
                 ) {
                     return events.concat(event);

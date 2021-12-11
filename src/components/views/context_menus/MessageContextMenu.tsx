@@ -102,7 +102,7 @@ export default class MessageContextMenu extends React.Component<IProps, IState> 
         const room = cli.getRoom(this.props.mxEvent.getRoomId());
 
         // We explicitly decline to show the redact option on ACL events as it has a potential
-        // to obliterate the room - https://github.com/matrix-org/synapse/issues/4042
+        // to obliterate the room - https://github.com/vnete/vnete-server/issues/4042
         // Similarly for encryption events, since redacting them "breaks everything"
         const canRedact = room.currentState.maySendRedactionForEvent(this.props.mxEvent, cli.credentials.userId)
             && this.props.mxEvent.getType() !== EventType.RoomServerAcl

@@ -1410,7 +1410,7 @@ export default class MatrixChat extends React.PureComponent<IProps, IState> {
         // state (each of which can be 10s of MBs) for each DISJOINT timeline. This is
         // particularly noticeable when there are lots of 'limited' /sync responses
         // such as when laptops unsleep.
-        // https://github.com/vector-im/element-web/issues/3307#issuecomment-282895568
+        // https://github.com/vnete/vnete-chat/issues/3307#issuecomment-282895568
         cli.setCanResetTimelineCallback((roomId) => {
             logger.log("Request to reset timeline in room ", roomId, " viewing:", this.state.currentRoomId);
             if (roomId !== this.state.currentRoomId) {
@@ -1804,7 +1804,7 @@ export default class MatrixChat extends React.PureComponent<IProps, IState> {
             // of the app, we coerce the eventId to be undefined where applicable.
             if (!eventId) eventId = undefined;
 
-            // TODO: Handle encoded room/event IDs: https://github.com/vector-im/element-web/issues/9149
+            // TODO: Handle encoded room/event IDs: https://github.com/vnete/vnete-chat/issues/9149
 
             let threepidInvite: IThreepidInvite;
             // if we landed here from a 3PID invite, persist it
@@ -1840,7 +1840,7 @@ export default class MatrixChat extends React.PureComponent<IProps, IState> {
                 threepid_invite: threepidInvite,
                 // TODO: Replace oob_data with the threepidInvite (which has the same info).
                 // This isn't done yet because it's threaded through so many more places.
-                // See https://github.com/vector-im/element-web/issues/15157
+                // See https://github.com/vnete/vnete-chat/issues/15157
                 oob_data: {
                     name: threepidInvite?.roomName,
                     avatarUrl: threepidInvite?.roomAvatarUrl,
@@ -2027,7 +2027,7 @@ export default class MatrixChat extends React.PureComponent<IProps, IState> {
         let fragmentAfterLogin = "";
         const initialScreenAfterLogin = this.props.initialScreenAfterLogin;
         if (initialScreenAfterLogin &&
-            // XXX: workaround for https://github.com/vector-im/element-web/issues/11643 causing a login-loop
+            // XXX: workaround for https://github.com/vnete/vnete-chat/issues/11643 causing a login-loop
             !["welcome", "login", "register", "start_sso", "start_cas"].includes(initialScreenAfterLogin.screen)
         ) {
             fragmentAfterLogin = `/${initialScreenAfterLogin.screen}`;
@@ -2167,7 +2167,7 @@ export function isLoggedIn(): boolean {
     // JRS: Maybe we should move the step that writes this to the window out of
     // `element-web` and into this file? Better yet, we should probably create a
     // store to hold this state.
-    // See also https://github.com/vector-im/element-web/issues/15034.
+    // See also https://github.com/vnete/vnete-chat/issues/15034.
     const app = window.matrixChat;
     return app && (app as MatrixChat).state.view === Views.LOGGED_IN;
 }

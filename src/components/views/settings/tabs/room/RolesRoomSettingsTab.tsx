@@ -55,7 +55,7 @@ const plEventsToShow: Record<string, IEventShowOpts> = {
     [EventType.RoomEncryption]: { isState: true, hideForSpace: true },
     [EventType.RoomServerAcl]: { isState: true, hideForSpace: true },
 
-    // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+    // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
     "im.vector.modular.widgets": { isState: true, hideForSpace: true },
 };
 
@@ -233,7 +233,7 @@ export default class RolesRoomSettingsTab extends React.Component<IProps> {
             [EventType.RoomEncryption]: _td("Enable room encryption"),
             [EventType.RoomServerAcl]: _td("Change server ACLs"),
 
-            // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+            // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
             "im.vector.modular.widgets": isSpaceRoom ? null : _td("Modify widgets"),
         };
 

@@ -110,7 +110,7 @@ interface IProps {
 
 interface IUsageLimit {
     // "hs_disabled" is NOT a specced string, but is used in Synapse
-    // This is tracked over at https://github.com/matrix-org/synapse/issues/9237
+    // This is tracked over at https://github.com/vnete/vnete-server/issues/9237
     // eslint-disable-next-line camelcase
     limit_type: "monthly_active_user" | "hs_disabled" | string;
     // eslint-disable-next-line camelcase
@@ -121,7 +121,7 @@ interface IState {
     syncErrorData?: {
         error: {
             // This is not specced, but used in Synapse. See
-            // https://github.com/matrix-org/synapse/issues/9237#issuecomment-768238922
+            // https://github.com/vnete/vnete-server/issues/9237#issuecomment-768238922
             data: IUsageLimit;
             errcode: string;
         };

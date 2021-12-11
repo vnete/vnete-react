@@ -282,7 +282,7 @@ export default class CreateSecretStorageDialog extends React.PureComponent<IProp
                     user: MatrixClientPeg.get().getUserId(),
                 },
                 // TODO: Remove `user` once servers support proper UIA
-                // See https://github.com/matrix-org/synapse/issues/5665
+                // See https://github.com/vnete/vnete-server/issues/5665
                 user: MatrixClientPeg.get().getUserId(),
                 password: this.state.accountPassword,
             });
@@ -556,7 +556,7 @@ export default class CreateSecretStorageDialog extends React.PureComponent<IProp
         // click the button are aware they're making a change to their account.
         // Once we're confident enough in this (and it's supported enough) we can do
         // it automatically.
-        // https://github.com/vector-im/element-web/issues/11696
+        // https://github.com/vnete/vnete-chat/issues/11696
 
         let authPrompt;
         let nextCaption = _t("Next");

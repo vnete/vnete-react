@@ -37,7 +37,7 @@ start.js accepts these parameters (and more, see `node start.js --help`) that ca
 # Developer Guide
 
 Please follow the standard Matrix contributor's guide:
-https://github.com/matrix-org/synapse/tree/master/CONTRIBUTING.rst
+https://github.com/vnete/vnete-server/tree/master/CONTRIBUTING.rst
 
 Please follow the Matrix JS/React code style as per:
-https://github.com/matrix-org/matrix-react-sdk/blob/master/code_style.md
+https://github.com/vnete/vnete-react/blob/master/code_style.md

@@ -335,7 +335,7 @@ const TAG_AESTHETICS: ITagAestheticsMap = {
         defaultHidden: false,
     },
 
-    // TODO: Replace with archived view: https://github.com/vector-im/element-web/issues/14038
+    // TODO: Replace with archived view: https://github.com/vnete/vnete-chat/issues/14038
     [DefaultTagID.Archived]: {
         sectionLabel: _td("Historical"),
         isInvite: false,
@@ -546,7 +546,7 @@ export default class RoomList extends React.PureComponent<IProps, IState> {
     private renderCommunityInvites(): ReactComponentElement<typeof ExtraTile>[] {
         if (SpaceStore.spacesEnabled) return [];
         // TODO: Put community invites in a more sensible place (not in the room list)
-        // See https://github.com/vector-im/element-web/issues/14456
+        // See https://github.com/vnete/vnete-chat/issues/14456
         return MatrixClientPeg.get().getGroups().filter(g => {
             return g.myMembership === 'invite';
         }).map(g => {

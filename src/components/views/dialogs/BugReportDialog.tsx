@@ -215,7 +215,7 @@ export default class BugReportDialog extends React.Component<IProps, IState> {
                             {
                                 a: (sub) => <a
                                     target="_blank"
-                                    href="https://github.com/vector-im/element-web/issues/new/choose"
+                                    href="https://github.com/vnete/vnete-chat/issues/new/choose"
                                 >
                                     { sub }
                                 </a>,
@@ -236,7 +236,7 @@ export default class BugReportDialog extends React.Component<IProps, IState> {
                         label={_t("GitHub issue")}
                         onChange={this.onIssueUrlChange}
                         value={this.state.issueUrl}
-                        placeholder="https://github.com/vector-im/element-web/issues/..."
+                        placeholder="https://github.com/vnete/vnete-chat/issues/..."
                     />
                     <Field
                         className="mx_BugReportDialog_field_input"

@@ -160,7 +160,7 @@ export default class CallEvent extends React.PureComponent<IProps, IState> {
                     </div>
                 );
             } else if (([CallErrorCode.UserHangup, "user hangup"].includes(hangupReason) || !hangupReason)) {
-                // workaround for https://github.com/vector-im/element-web/issues/5178
+                // workaround for https://github.com/vnete/vnete-chat/issues/5178
                 // it seems Android randomly sets a reason of "user hangup" which is
                 // interpreted as an error code :(
                 // https://github.com/vector-im/riot-android/issues/2623

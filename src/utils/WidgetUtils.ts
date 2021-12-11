@@ -82,7 +82,7 @@ export default class WidgetUtils {
             return false;
         }
 
-        // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+        // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
         return room.currentState.maySendStateEvent('im.vector.modular.widgets', me);
     }
 
@@ -198,7 +198,7 @@ export default class WidgetUtils {
             }
 
             const room = MatrixClientPeg.get().getRoom(roomId);
-            // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+            // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
             const startingWidgetEvents = room.currentState.getStateEvents('im.vector.modular.widgets');
             if (eventsInIntendedState(startingWidgetEvents)) {
                 resolve();
@@ -208,7 +208,7 @@ export default class WidgetUtils {
             function onRoomStateEvents(ev) {
                 if (ev.getRoomId() !== roomId) return;
 
-                // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+                // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
                 const currentWidgetEvents = room.currentState.getStateEvents('im.vector.modular.widgets');
 
                 if (eventsInIntendedState(currentWidgetEvents)) {
@@ -289,7 +289,7 @@ export default class WidgetUtils {
 
         if (addingWidget) {
             content = {
-                // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+                // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
                 // For now we'll send the legacy event type for compatibility with older apps/elements
                 type: widgetType.legacy,
                 url: widgetUrl,
@@ -313,7 +313,7 @@ export default class WidgetUtils {
         WidgetEchoStore.setRoomWidgetEcho(roomId, widgetId, content);
 
         const client = MatrixClientPeg.get();
-        // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+        // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
         return client.sendStateEvent(roomId, "im.vector.modular.widgets", content, widgetId).then(() => {
             return WidgetUtils.waitForRoomWidget(widgetId, roomId, addingWidget);
         }).finally(() => {
@@ -327,7 +327,7 @@ export default class WidgetUtils {
      * @return {[object]} Array containing current / active room widgets
      */
     static getRoomWidgets(room: Room) {
-        // TODO: Enable support for m.widget event type (https://github.com/vector-im/element-web/issues/13111)
+        // TODO: Enable support for m.widget event type (https://github.com/vnete/vnete-chat/issues/13111)
         const appsStateEvents = room.currentState.getStateEvents('im.vector.modular.widgets');
         if (!appsStateEvents) {
             return [];

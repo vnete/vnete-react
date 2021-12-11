@@ -136,8 +136,8 @@ describe("Markdown parser test", () => {
 
         it('expects that the link part will not be accidentally added to <strong>', () => {
             /* eslint-disable max-len */
-            const testString = `https://github.com/matrix-org/synapse/blob/develop/synapse/module_api/__init__.py`;
-            const expectedResult = 'https://github.com/matrix-org/synapse/blob/develop/synapse/module_api/__init__.py';
+            const testString = `https://github.com/vnete/vnete-server/blob/develop/synapse/module_api/__init__.py`;
+            const expectedResult = 'https://github.com/vnete/vnete-server/blob/develop/synapse/module_api/__init__.py';
             /* eslint-enable max-len */
             const md = new Markdown(testString);
             expect(md.toHTML()).toEqual(expectedResult);
@@ -146,12 +146,12 @@ describe("Markdown parser test", () => {
         it('expects that the link part will not be accidentally added to <strong> for multiline links', () => {
             /* eslint-disable max-len */
             const testString = [
-                'https://github.com/matrix-org/synapse/blob/develop/synapse/module_api/__init__.py' + " " + 'https://github.com/matrix-org/synapse/blob/develop/synapse/module_api/__init__.py',
-                'https://github.com/matrix-org/synapse/blob/develop/synapse/module_api/__init__.py' + " " + 'https://github.com/matrix-org/synapse/blob/develop/synapse/module_api/__init__.py',
+                'https://github.com/vnete/vnete-server/blob/develop/synapse/module_api/__init__.py' + " " + 'https://github.com/vnete/vnete-server/blob/develop/synapse/module_api/__init__.py',
+                'https://github.com/vnete/vnete-server/blob/develop/synapse/module_api/__init__.py' + " " + 'https://github.com/vnete/vnete-server/blob/develop/synapse/module_api/__init__.py',
             ].join('\n');
             const expectedResult = [
-                'https://github.com/matrix-org/synapse/blob/develop/synapse/module_api/__init__.py' + " " + 'https://github.com/matrix-org/synapse/blob/develop/synapse/module_api/__init__.py',
-                'https://github.com/matrix-org/synapse/blob/develop/synapse/module_api/__init__.py' + " " + 'https://github.com/matrix-org/synapse/blob/develop/synapse/module_api/__init__.py',
+                'https://github.com/vnete/vnete-server/blob/develop/synapse/module_api/__init__.py' + " " + 'https://github.com/vnete/vnete-server/blob/develop/synapse/module_api/__init__.py',
+                'https://github.com/vnete/vnete-server/blob/develop/synapse/module_api/__init__.py' + " " + 'https://github.com/vnete/vnete-server/blob/develop/synapse/module_api/__init__.py',
             ].join('<br />');
             /* eslint-enable max-len */
             const md = new Markdown(testString);

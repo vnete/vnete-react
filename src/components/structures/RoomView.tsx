@@ -481,7 +481,7 @@ export class RoomView extends React.Component<IRoomProps, IRoomState> {
             this.context.stopPeeking();
         }
 
-        // Temporary logging to diagnose https://github.com/vector-im/element-web/issues/4307
+        // Temporary logging to diagnose https://github.com/vnete/vnete-chat/issues/4307
         logger.log(
             'RVS update:',
             newState.roomId,

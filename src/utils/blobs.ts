@@ -24,7 +24,7 @@ limitations under the License.
 // bad if the user right-clicks the URI and pastes it into a new window or tab,
 // as the blob will then execute with access to Vnete's full JS environment(!)
 //
-// See https://github.com/matrix-org/matrix-react-sdk/pull/1820#issuecomment-385210647
+// See https://github.com/vnete/vnete-react/pull/1820#issuecomment-385210647
 // for details.
 //
 // We mitigate this by only allowing mime-types into blobs which we know don't

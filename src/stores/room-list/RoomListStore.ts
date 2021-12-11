@@ -404,7 +404,7 @@ export class RoomListStoreClass extends AsyncStoreWithClient<IState> {
 
     private setAndPersistTagSorting(tagId: TagID, sort: SortAlgorithm) {
         this.algorithm.setTagSorting(tagId, sort);
-        // TODO: Per-account? https://github.com/vector-im/element-web/issues/14114
+        // TODO: Per-account? https://github.com/vnete/vnete-chat/issues/14114
         localStorage.setItem(`mx_tagSort_${tagId}`, sort);
     }
 
@@ -414,7 +414,7 @@ export class RoomListStoreClass extends AsyncStoreWithClient<IState> {
 
     // noinspection JSMethodCanBeStatic
     private getStoredTagSorting(tagId: TagID): SortAlgorithm {
-        // TODO: Per-account? https://github.com/vector-im/element-web/issues/14114
+        // TODO: Per-account? https://github.com/vnete/vnete-chat/issues/14114
         return <SortAlgorithm>localStorage.getItem(`mx_tagSort_${tagId}`);
     }
 
@@ -448,7 +448,7 @@ export class RoomListStoreClass extends AsyncStoreWithClient<IState> {
 
     private setAndPersistListOrder(tagId: TagID, order: ListAlgorithm) {
         this.algorithm.setListOrdering(tagId, order);
-        // TODO: Per-account? https://github.com/vector-im/element-web/issues/14114
+        // TODO: Per-account? https://github.com/vnete/vnete-chat/issues/14114
         localStorage.setItem(`mx_listOrder_${tagId}`, order);
     }
 
@@ -458,7 +458,7 @@ export class RoomListStoreClass extends AsyncStoreWithClient<IState> {
 
     // noinspection JSMethodCanBeStatic
     private getStoredListOrder(tagId: TagID): ListAlgorithm {
-        // TODO: Per-account? https://github.com/vector-im/element-web/issues/14114
+        // TODO: Per-account? https://github.com/vnete/vnete-chat/issues/14114
         return <ListAlgorithm>localStorage.getItem(`mx_listOrder_${tagId}`);
     }
 

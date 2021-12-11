@@ -281,7 +281,7 @@ export default class AppTile extends React.Component<IProps, IState> {
     private async endWidgetActions(): Promise<void> { // widget migration dev note: async to maintain signature
         // HACK: This is a really dirty way to ensure that Jitsi cleans up
         // its hold on the webcam. Without this, the widget holds a media
-        // stream open, even after death. See https://github.com/vector-im/element-web/issues/7351
+        // stream open, even after death. See https://github.com/vnete/vnete-chat/issues/7351
         if (this.iframe) {
             // In practice we could just do `+= ''` to trick the browser
             // into thinking the URL changed, however I can foresee this

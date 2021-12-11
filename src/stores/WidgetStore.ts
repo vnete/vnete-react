@@ -36,7 +36,7 @@ export interface IApp extends IWidget {
     roomId: string;
     eventId: string;
     // eslint-disable-next-line camelcase
-    avatar_url: string; // MSC2765 https://github.com/matrix-org/matrix-doc/pull/2765
+    avatar_url: string; // MSC2765 https://github.com/vnete/vnete-doc/pull/2765
 }
 
 interface IRoomWidgets {
@@ -123,7 +123,7 @@ export default class WidgetStore extends AsyncStoreWithClient<IState> {
 
         let edited = false;
         this.generateApps(room).forEach(app => {
-            // Sanity check for https://github.com/vector-im/element-web/issues/15705
+            // Sanity check for https://github.com/vnete/vnete-chat/issues/15705
             const existingApp = this.widgetMap.get(widgetUid(app));
             if (existingApp) {
                 logger.warn(

@@ -103,8 +103,8 @@ export default class ChangePassword extends React.Component<IProps, IState> {
                         'In future this will be improved.',
                     ) }
                     { ' ' }
-                    <a href="https://github.com/vector-im/element-web/issues/2671" target="_blank" rel="noreferrer noopener">
-                        https://github.com/vector-im/element-web/issues/2671
+                    <a href="https://github.com/vnete/vnete-chat/issues/2671" target="_blank" rel="noreferrer noopener">
+                        https://github.com/vnete/vnete-chat/issues/2671
                     </a>
                 </div>,
             button: _t("Continue"),
@@ -133,7 +133,7 @@ export default class ChangePassword extends React.Component<IProps, IState> {
                 user: cli.credentials.userId,
             },
             // TODO: Remove `user` once servers support proper UIA
-            // See https://github.com/matrix-org/synapse/issues/5665
+            // See https://github.com/vnete/vnete-server/issues/5665
             user: cli.credentials.userId,
             password: oldPassword,
         };

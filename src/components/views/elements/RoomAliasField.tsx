@@ -98,7 +98,7 @@ export default class RoomAliasField extends React.PureComponent<IProps, IState> 
                         return true;
                     }
                     const fullAlias = this.asFullAlias(value);
-                    // XXX: FIXME https://github.com/matrix-org/matrix-doc/issues/668
+                    // XXX: FIXME https://github.com/vnete/vnete-doc/issues/668
                     return !value.includes("#") && !value.includes(":") && !value.includes(",") &&
                         encodeURI(fullAlias) === fullAlias;
                 },

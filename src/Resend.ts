@@ -48,7 +48,7 @@ export default class Resend {
             });
         }, function(err: Error) {
             // XXX: temporary logging to try to diagnose
-            // https://github.com/vector-im/element-web/issues/3148
+            // https://github.com/vnete/vnete-chat/issues/3148
             logger.log('Resend got send failure: ' + err.name + '(' + err + ')');
         });
     }

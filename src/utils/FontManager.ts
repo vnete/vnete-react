@@ -116,7 +116,7 @@ export async function fixupColorFonts(): Promise<void> {
         document.fonts.add(new FontFace("Twemoji", path, { weight: "600" }));
         document.fonts.add(new FontFace("Twemoji", path, { weight: "700" }));
     } else {
-        // fall back to SBIX, generated via https://github.com/matrix-org/twemoji-colr/tree/matthew/sbix
+        // fall back to SBIX, generated via https://github.com/vnete/twemoji-colr/tree/matthew/sbix
         const path = `url('${require("../../res/fonts/Twemoji_Mozilla/TwemojiMozilla-sbix.woff2")}')`;
         document.fonts.add(new FontFace("Twemoji", path, {}));
         document.fonts.add(new FontFace("Twemoji", path, { weight: "600" }));

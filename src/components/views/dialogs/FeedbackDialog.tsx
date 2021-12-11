@@ -30,9 +30,9 @@ import { submitFeedback } from "../../../rageshake/submit-rageshake";
 import { useStateToggle } from "../../../hooks/useStateToggle";
 import StyledCheckbox from "../elements/StyledCheckbox";
 
-const existingIssuesUrl = "https://github.com/vector-im/element-web/issues" +
+const existingIssuesUrl = "https://github.com/vnete/vnete-chat/issues" +
     "?q=is%3Aopen+is%3Aissue+sort%3Areactions-%2B1-desc";
-const newIssueUrl = "https://github.com/vector-im/element-web/issues/new/choose";
+const newIssueUrl = "https://github.com/vnete/vnete-chat/issues/new/choose";
 
 interface IProps extends IDialogProps {}
 

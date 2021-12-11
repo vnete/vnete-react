@@ -41,7 +41,7 @@ export class Jitsi {
      *
      * If the file does not exist, we assume no auth.
      *
-     * See https://github.com/matrix-org/prosody-mod-auth-matrix-user-verification
+     * See https://github.com/vnete/prosody-mod-auth-matrix-user-verification
      */
     public async getJitsiAuth(): Promise<string|null> {
         if (!this.preferredDomain) {

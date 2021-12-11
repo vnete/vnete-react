@@ -279,7 +279,7 @@ export default class BasicMessageEditor extends React.Component<IProps, IState> 
         // so trigger a model update after the composition is done by calling the input handler.
 
         // however, modifying the DOM (caused by the editor model update) from the compositionend handler seems
-        // to confuse the IME in Chrome, likely causing https://github.com/vector-im/element-web/issues/10913 ,
+        // to confuse the IME in Chrome, likely causing https://github.com/vnete/vnete-chat/issues/10913 ,
         // so we do it async
 
         // however, doing this async seems to break things in Safari for some reason, so browser sniff.

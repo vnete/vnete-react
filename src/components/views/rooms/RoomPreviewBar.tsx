@@ -551,7 +551,7 @@ export default class RoomPreviewBar extends React.Component<IProps, IState> {
                         "<issueLink>submit a bug report</issueLink>.",
                         { errcode: this.props.error.errcode },
                         { issueLink: label => <a
-                            href="https://github.com/vector-im/element-web/issues/new/choose"
+                            href="https://github.com/vnete/vnete-chat/issues/new/choose"
                             target="_blank"
                             rel="noreferrer noopener">{ label }</a> },
                     ),

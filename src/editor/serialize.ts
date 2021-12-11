@@ -36,7 +36,7 @@ export function mdSerialize(model: EditorModel): string {
                 return html + part.text;
             case Type.RoomPill:
                 // Here we use the resourceId for compatibility with non-rich text clients
-                // See https://github.com/vector-im/element-web/issues/16660
+                // See https://github.com/vnete/vnete-chat/issues/16660
                 return html +
                     `[${part.resourceId.replace(/[[\\\]]/g, c => "\\" + c)}](${makeGenericPermalink(part.resourceId)})`;
             case Type.UserPill:
@@ -169,7 +169,7 @@ export function textSerialize(model: EditorModel): string {
                 return text + part.text;
             case Type.RoomPill:
                 // Here we use the resourceId for compatibility with non-rich text clients
-                // See https://github.com/vector-im/element-web/issues/16660
+                // See https://github.com/vnete/vnete-chat/issues/16660
                 return text + `${part.resourceId}`;
             case Type.UserPill:
                 return text + `${part.text}`;

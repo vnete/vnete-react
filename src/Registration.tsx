@@ -27,7 +27,7 @@ import { _t } from './languageHandler';
 import QuestionDialog from "./components/views/dialogs/QuestionDialog";
 
 // Regex for what a "safe" or "Matrix-looking" localpart would be.
-// TODO: Update as needed for https://github.com/matrix-org/matrix-doc/issues/1514
+// TODO: Update as needed for https://github.com/vnete/vnete-doc/issues/1514
 export const SAFE_LOCALPART_REGEX = /^[a-z0-9=_\-./]+$/;
 
 /**

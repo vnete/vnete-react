@@ -59,10 +59,10 @@ export function doesRoomHaveUnreadMessages(room: Room): boolean {
 
     // as we don't send RRs for our own messages, make sure we special case that
     // if *we* sent the last message into the room, we consider it not unread!
-    // Should fix: https://github.com/vector-im/element-web/issues/3263
-    //             https://github.com/vector-im/element-web/issues/2427
+    // Should fix: https://github.com/vnete/vnete-chat/issues/3263
+    //             https://github.com/vnete/vnete-chat/issues/2427
     // ...and possibly some of the others at
-    //             https://github.com/vector-im/element-web/issues/3363
+    //             https://github.com/vnete/vnete-chat/issues/3363
     if (room.timeline.length && room.timeline[room.timeline.length - 1].getSender() === myUserId) {
         return false;
     }

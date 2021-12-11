@@ -162,7 +162,7 @@ export default class HelpUserSettingsTab extends React.Component<IProps, IState>
                     </li>
                     <li>
                         The <a
-                            href="https://github.com/matrix-org/twemoji-colr"
+                            href="https://github.com/vnete/twemoji-colr"
                             rel="noreferrer noopener"
                             target="_blank"
                         >

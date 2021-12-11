@@ -168,7 +168,7 @@ listeners:
   # that unwraps TLS.
   #
   # If you plan to use a reverse proxy, please see
-  # https://github.com/matrix-org/synapse/blob/master/docs/reverse_proxy.rst.
+  # https://github.com/vnete/vnete-server/blob/master/docs/reverse_proxy.rst.
   #
   - port: {{SYNAPSE_PORT}}
     tls: false
@@ -970,7 +970,7 @@ email:
 # User Consent configuration
 #
 # for detailed instructions, see
-# https://github.com/matrix-org/synapse/blob/master/docs/consent_tracking.md
+# https://github.com/vnete/vnete-server/blob/master/docs/consent_tracking.md
 #
 # Parts of this section are required if enabling the 'consent' resource under
 # 'listeners', in particular 'template_dir' and 'version'.

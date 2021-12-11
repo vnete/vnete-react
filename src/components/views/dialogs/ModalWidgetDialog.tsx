@@ -141,7 +141,7 @@ export default class ModalWidgetDialog extends React.PureComponent<IProps, IStat
 
         // Add in some legacy support sprinkles (for non-popout widgets)
         // TODO: Replace these with proper widget params
-        // See https://github.com/matrix-org/matrix-doc/pull/1958/files#r405714833
+        // See https://github.com/vnete/vnete-doc/pull/1958/files#r405714833
         parsed.searchParams.set('widgetId', this.widget.id);
         parsed.searchParams.set('parentUrl', window.location.href.split('#', 2)[0]);
 
