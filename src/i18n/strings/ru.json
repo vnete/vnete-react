@@ -2069,7 +2069,7 @@
     "Use the <a>Desktop app</a> to see all encrypted files": "Используйте <a>настольное приложение</a>, чтобы просмотреть все зашифрованные файлы",
     "Use the <a>Desktop app</a> to search encrypted messages": "Используйте <a>настольное приложение</a> для поиска зашифрованных сообщений",
     "This version of %(brand)s does not support viewing some encrypted files": "Эта версия %(brand)s не поддерживает просмотр некоторых зашифрованных файлов",
-    "This version of %(brand)s does not support searching encrypted messages": "На данный момент %(brand)s не поддерживает поиск зашифрованных сообщений",
+    "This version of %(brand)s does not support searching encrypted messages": "%(brand)s не совершает поиск по зашифрованным сообщениям",
     "Cannot create rooms in this community": "Невозможно создать чата в этом сообществе",
     "You do not have permission to create rooms in this community.": "У вас нет разрешения на создание чатов в этом сообществе.",
     "Join the conference at the top of this room": "Присоединяйтесь к конференции в верхней части этого чата",

@@ -18,7 +18,7 @@ are currently filed against vector-im/element-web rather than this project).
 
 # Translation Status
 
-[![Translation status](https://translate.element.io/widgets/element-web/-/multi-auto.svg)](https://translate.element.io/engage/element-web/?utm_source=widget)
+[![Translation status](https://translate.vnete.net/widgets/element-web/-/multi-auto.svg)](https://translate.vnete.net/engage/element-web/?utm_source=widget)
 
 All code lands on the `develop` branch - `master` is only used for stable releases.
 **Please file PRs against `develop`!!**

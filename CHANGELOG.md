@@ -2355,7 +2355,7 @@ disclosing this via Matrix's Security Disclosure Policy.
     [\#5517](https://github.com/vnete/vnete-react/pull/5517)
 -   Bump ini from 1.3.5 to 1.3.7
     [\#5486](https://github.com/vnete/vnete-react/pull/5486)
--   Recognise `*.element.io` links as Vnete permalinks
+-   Recognise `*.vnete.net` links as Vnete permalinks
     [\#5514](https://github.com/vnete/vnete-react/pull/5514)
 -   Fixes for call UI
     [\#5509](https://github.com/vnete/vnete-react/pull/5509)
@@ -2389,7 +2389,7 @@ disclosing this via Matrix's Security Disclosure Policy.
 -   Upgrade JS SDK to 9.4.0
 -   [Release] Look for emoji in the body that will be displayed
     [\#5519](https://github.com/vnete/vnete-react/pull/5519)
--   [Release] Recognise `*.element.io` links as Vnete permalinks
+-   [Release] Recognise `*.vnete.net` links as Vnete permalinks
     [\#5516](https://github.com/vnete/vnete-react/pull/5516)
 -   [Release] Fixes for call UI
     [\#5513](https://github.com/vnete/vnete-react/pull/5513)

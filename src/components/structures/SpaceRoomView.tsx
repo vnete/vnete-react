@@ -758,8 +758,8 @@ const SpaceSetupPrivateInvite = ({ space, onFinished }) => {
             { _t("<b>This is an experimental feature.</b> For now, " +
                 "new users receiving an invite will have to open the invite on <link/> to actually join.", {}, {
                 b: sub => <b>{ sub }</b>,
-                link: () => <a href="https://app.element.io/" rel="noreferrer noopener" target="_blank">
-                    app.element.io
+                link: () => <a href="https://chat.vnete.net/" rel="noreferrer noopener" target="_blank">
+                    chat.vnete.net
                 </a>,
             }) }
         </div>

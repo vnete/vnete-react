@@ -7,7 +7,7 @@ The react-sdk wraps all Jitsi call widgets in a local wrapper called `jitsi.html
 which takes several parameters:
 
 *Query string*:
-* `widgetId`: The ID of the widget. This is needed for communication back to the 
+* `widgetId`: The ID of the widget. This is needed for communication back to the
   react-sdk.
 * `parentUrl`: The URL of the parent window. This is also needed for
   communication back to the react-sdk.
@@ -25,7 +25,7 @@ which takes several parameters:
   be null.
 
 The react-sdk will assume that `jitsi.html` is at the path of wherever it is currently
-being served. For example, `https://develop.element.io/jitsi.html` or `vector://webapp/jitsi.html`.
+being served. For example, `https://develop.vnete.net/jitsi.html` or `vector://webapp/jitsi.html`.
 
 The `jitsi.html` wrapper can use the react-sdk's `WidgetApi` to communicate, making
 it easier to actually implement the feature.

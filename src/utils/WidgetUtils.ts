@@ -494,7 +494,7 @@ export default class WidgetUtils {
             // safe to send.
             // We'll end up using a local render URL when we see a Jitsi widget anyways, so this is
             // really just for backwards compatibility and to appease the spec.
-            baseUrl = "https://app.element.io/";
+            baseUrl = "https://chat.vnete.net/";
         }
         const url = new URL("jitsi.html#" + queryString, baseUrl); // this strips hash fragment from baseUrl
         return url.href;

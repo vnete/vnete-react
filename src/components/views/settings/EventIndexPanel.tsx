@@ -225,7 +225,7 @@ export default class EventIndexPanel extends React.Component<{}, IState> {
                     },
                     {
                         desktopLink: sub => <a
-                            href="https://element.io/get-started"
+                            href="https://vnete.net/start.html"
                             target="_blank"
                             rel="noreferrer noopener"
                         >{ sub }</a>,

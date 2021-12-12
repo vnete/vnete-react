@@ -221,7 +221,7 @@ export default class HelpUserSettingsTab extends React.Component<IProps, IState>
             },
             {
                 'a': (sub) => <a
-                    href="https://element.io/help"
+                    href="https://vnete.net/help"
                     rel="noreferrer noopener"
                     target="_blank"
                 >
@@ -240,7 +240,7 @@ export default class HelpUserSettingsTab extends React.Component<IProps, IState>
                         },
                         {
                             'a': (sub) => <a
-                                href="https://element.io/help"
+                                href="https://vnete.net/help"
                                 rel='noreferrer noopener'
                                 target='_blank'
                             >

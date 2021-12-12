@@ -164,7 +164,7 @@ export default class SecurityRoomSettingsTab extends React.Component<IProps, ISt
                 {},
                 {
                     a: sub => <a
-                        href="https://element.io/help#encryption"
+                        href="https://vnete.net/help#encryption"
                         rel="noreferrer noopener"
                         target="_blank"
                     >{ sub }</a>,

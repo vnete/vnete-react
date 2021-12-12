@@ -9,7 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Build
-              run: scripts/ci/layered.sh && cd element-web && cp element.io/develop/config.json config.json && CI_PACKAGE=true yarn build
+              run: scripts/ci/layered.sh && cd element-web && cp vnete.net/develop/config.json config.json && CI_PACKAGE=true yarn build
             - name: Upload Artifact
               uses: actions/upload-artifact@v2
               with:
