@@ -77,7 +77,7 @@ const ServerPicker = ({ title, dialogTitle, serverConfig, onServerConfigChange }
     }
 
     let desc;
-    if (serverConfig.hsName === "matrix.org") {
+    if (serverConfig.hsName === "vnete.net") {
         desc = <span className="mx_ServerPicker_desc">
             { _t("Join millions for free on the largest public server") }
         </span>;

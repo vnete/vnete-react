@@ -110,7 +110,7 @@ export class OwnProfileStore extends AsyncStoreWithClient<IState> {
         }
 
         // We also have to listen for membership events for ourselves as the above User events
-        // are fired only with presence, which matrix.org (and many others) has disabled.
+        // are fired only with presence, which vnete.net (and many others) has disabled.
         this.matrixClient.on("RoomState.events", this.onStateEvents);
 
         await this.onProfileUpdate(); // trigger an initial update

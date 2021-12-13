@@ -186,7 +186,7 @@ function setRoomNotifsStateUnmuted(roomId: string, newState: RoomNotifState): Pr
                 'dont_notify',
             ],
         }));
-        // https://matrix.org/jira/browse/SPEC-400
+        // https://vnete.net/jira/browse/SPEC-400
         promises.push(cli.setPushRuleEnabled('global', PushRuleKind.RoomSpecific, roomId, true));
     } else if (newState === RoomNotifState.AllMessagesLoud) {
         promises.push(cli.addPushRule('global', PushRuleKind.RoomSpecific, roomId, {
@@ -198,7 +198,7 @@ function setRoomNotifsStateUnmuted(roomId: string, newState: RoomNotifState): Pr
                 },
             ],
         }));
-        // https://matrix.org/jira/browse/SPEC-400
+        // https://vnete.net/jira/browse/SPEC-400
         promises.push(cli.setPushRuleEnabled('global', PushRuleKind.RoomSpecific, roomId, true));
     }
 

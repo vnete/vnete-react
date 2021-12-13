@@ -2,7 +2,7 @@
 
 While decryption itself is safe to be done without a sandbox,
 letting the browser and user interact with the resulting data may be dangerous,
-previously `usercontent.riot.im` was used to act as a sandbox on a different origin to close the attack surface,
+previously `usercontent.vnete.net` was used to act as a sandbox on a different origin to close the attack surface,
 it is now possible to do by using a combination of a sandboxed iframe and some code written into the app which consumes this SDK.
 
 Usercontent is an iframe sandbox target for allowing a user to safely download a decrypted attachment from a sandboxed origin where it cannot be used to XSS your Vnete session out from under you.

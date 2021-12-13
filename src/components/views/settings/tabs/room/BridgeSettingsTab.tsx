@@ -28,7 +28,7 @@ const BRIDGE_EVENT_TYPES = [
     // m.bridge
 ];
 
-const BRIDGES_LINK = "https://matrix.org/bridges/";
+const BRIDGES_LINK = "https://vnete.net/bridges/";
 
 interface IProps {
     roomId: string;

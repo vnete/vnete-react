@@ -82,8 +82,8 @@ export default class ServerPickerDialog extends React.PureComponent<IProps, ISta
     };
 
     // TODO: Do we want to support .well-known lookups here?
-    // If for some reason someone enters "matrix.org" for a URL, we could do a lookup to
-    // find their homeserver without demanding they use "https://matrix.org"
+    // If for some reason someone enters "vnete.net" for a URL, we could do a lookup to
+    // find their homeserver without demanding they use "https://vnete.net"
     private validate = withValidation<this, { error?: string }>({
         deriveData: async ({ value }) => {
             let hsUrl = value.trim(); // trim to account for random whitespace
@@ -166,7 +166,7 @@ export default class ServerPickerDialog extends React.PureComponent<IProps, ISta
 
     public render() {
         let text;
-        if (this.defaultServer.hsName === "matrix.org") {
+        if (this.defaultServer.hsName === "vnete.net") {
             text = _t("Matrix.org is the biggest public homeserver in the world, so it's a good place for many.");
         }
 
@@ -232,7 +232,7 @@ export default class ServerPickerDialog extends React.PureComponent<IProps, ISta
                 </AccessibleButton>
 
                 <h4>{ _t("Learn more") }</h4>
-                <a href="https://matrix.org/faq/#what-is-a-homeserver%3F" target="_blank" rel="noreferrer noopener">
+                <a href="https://vnete.net/faq/#what-is-a-homeserver%3F" target="_blank" rel="noreferrer noopener">
                     { _t("About homeservers") }
                 </a>
             </form>

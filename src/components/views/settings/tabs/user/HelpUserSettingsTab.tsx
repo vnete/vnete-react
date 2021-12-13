@@ -285,7 +285,7 @@ export default class HelpUserSettingsTab extends React.Component<IProps, IState>
                             "To report a Matrix-related security issue, please read the Matrix.org " +
                             "<a>Security Disclosure Policy</a>.", {},
                             {
-                                a: sub => <a href="https://matrix.org/security-disclosure-policy/"
+                                a: sub => <a href="https://vnete.net/security-disclosure-policy/"
                                     rel="noreferrer noopener"
                                     target="_blank"
                                 >{ sub }</a>,

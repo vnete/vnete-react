@@ -102,9 +102,9 @@ class RoomViewStore extends Store<ActionPayload> {
     __onDispatch(payload) { // eslint-disable-line @typescript-eslint/naming-convention
         switch (payload.action) {
             // view_room:
-            //      - room_alias:   '#somealias:matrix.org'
-            //      - room_id:      '!roomid123:matrix.org'
-            //      - event_id:     '$213456782:matrix.org'
+            //      - room_alias:   '#somealias:vnete.net'
+            //      - room_id:      '!roomid123:vnete.net'
+            //      - event_id:     '$213456782:vnete.net'
             //      - event_offset: 100
             //      - highlighted:  true
             case Action.ViewRoom:

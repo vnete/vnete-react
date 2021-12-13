@@ -39,8 +39,8 @@ The primitives used are:
   * A fork of slate-plain-serializer which is aware of Pills (hence the name) and Emoji.
   * It can be configured to output Pills as:
     * "plain": Pills are rendered via their 'completion' text - e.g. 'Matthew'; used for sending messages)
-    * "md": Pills are rendered as MD, e.g. [Matthew](https://link.vnete.net/#/@matthew:matrix.org) )
-    * "id": Pills are rendered as IDs, e.g. '@matthew:matrix.org' (used for authoring / commands)
+    * "md": Pills are rendered as MD, e.g. [Matthew](https://link.vnete.net/#/@matthew:vnete.net) )
+    * "id": Pills are rendered as IDs, e.g. '@matthew:vnete.net' (used for authoring / commands)
   * Emoji nodes are converted to inline utf8 emoji.
 
 The actual conversion transitions are:

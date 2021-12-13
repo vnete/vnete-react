@@ -130,7 +130,7 @@ describe("<TextualBody />", () => {
                 room: "room_id",
                 user: "sender",
                 content: {
-                    body: "Visit https://matrix.org/",
+                    body: "Visit https://vnete.net/",
                     msgtype: "m.text",
                 },
                 event: true,
@@ -141,8 +141,8 @@ describe("<TextualBody />", () => {
             const content = wrapper.find(".mx_EventTile_body");
             expect(content.html()).toBe(
                 '<span class="mx_EventTile_body" dir="auto">' +
-                    'Visit <a href="https://matrix.org/" class="linkified" target="_blank" rel="noreferrer noopener">' +
-                    "https://matrix.org/</a></span>"
+                    'Visit <a href="https://vnete.net/" class="linkified" target="_blank" rel="noreferrer noopener">' +
+                    "https://vnete.net/</a></span>"
             );
         });
     });
@@ -349,7 +349,7 @@ describe("<TextualBody />", () => {
             room: "room_id",
             user: "sender",
             content: {
-                body: "Visit https://matrix.org/",
+                body: "Visit https://vnete.net/",
                 msgtype: "m.text",
             },
             event: true,
@@ -366,7 +366,7 @@ describe("<TextualBody />", () => {
 
         let widgets = wrapper.find("LinkPreviewGroup");
         // at this point we should have exactly one link
-        expect(widgets.at(0).prop("links")).toEqual(["https://matrix.org/"]);
+        expect(widgets.at(0).prop("links")).toEqual(["https://vnete.net/"]);
 
         // simulate an event edit and check the transition from the old URL preview to the new one
         const ev2 = mkEvent({
@@ -375,7 +375,7 @@ describe("<TextualBody />", () => {
             user: "sender",
             content: {
                 "m.new_content": {
-                    body: "Visit https://vector.im/ and https://riot.im/",
+                    body: "Visit https://vector.im/ and https://chat.vnete.net/",
                     msgtype: "m.text",
                 },
             },
@@ -396,10 +396,10 @@ describe("<TextualBody />", () => {
                 // XXX: this is to give TextualBody enough time for state to settle
                 wrapper.setState({}, () => {
                     widgets = wrapper.find("LinkPreviewGroup");
-                    // at this point we should have exactly two links (not the matrix.org one anymore)
+                    // at this point we should have exactly two links (not the vnete.net one anymore)
                     expect(widgets.at(0).prop("links")).toEqual([
                         "https://vector.im/",
-                        "https://riot.im/",
+                        "https://chat.vnete.net/",
                     ]);
                 });
             }

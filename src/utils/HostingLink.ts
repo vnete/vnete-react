@@ -22,7 +22,7 @@ export function getHostingLink(campaign: string): string {
     if (!hostingLink) return null;
     if (!campaign) return hostingLink;
 
-    if (MatrixClientPeg.get().getDomain() !== 'matrix.org') return null;
+    if (MatrixClientPeg.get().getDomain() !== 'vnete.net') return null;
 
     try {
         const hostingUrl = new URL(hostingLink);

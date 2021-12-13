@@ -109,8 +109,8 @@ export class ElementWidget extends Widget {
         }
         let domain = super.rawData['domain'];
         if (domain === undefined) {
-            // v1 widgets default to jitsi.riot.im regardless of user settings
-            domain = "jitsi.riot.im";
+            // v1 widgets default to video.vnete.net regardless of user settings
+            domain = "video.vnete.net";
         }
 
         let theme = new ThemeWatcher().getEffectiveTheme();

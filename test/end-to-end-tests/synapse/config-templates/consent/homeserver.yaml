@@ -4,7 +4,7 @@
 
 # The domain name of the server, with optional explicit port.
 # This is used by remote servers to connect to this server,
-# e.g. matrix.org, localhost:8080, etc.
+# e.g. vnete.net, localhost:8080, etc.
 # This is also the last part of your UserID.
 #
 server_name: "localhost"
@@ -332,7 +332,7 @@ acme:
 # You can calculate a fingerprint from a given TLS listener via:
 # openssl s_client -connect $host:$port < /dev/null 2> /dev/null |
 #   openssl x509 -outform DER | openssl sha256 -binary | base64 | tr -d '='
-# or by checking matrix.org/federationtester/api/report?server_name=$host
+# or by checking vnete.net/federationtester/api/report?server_name=$host
 #
 #tls_fingerprints: [{"sha256": "<base64_encoded_sha256_fingerprint>"}]
 
@@ -680,7 +680,7 @@ registration_shared_secret: "{{REGISTRATION_SHARED_SECRET}}"
 # (By default, no suggestion is made, so it is left up to the client.
 # This setting is ignored unless public_baseurl is also set.)
 #
-#default_identity_server: https://matrix.org
+#default_identity_server: https://vnete.net
 
 # The list of identity servers trusted to verify third party
 # identifiers by this server.
@@ -689,7 +689,7 @@ registration_shared_secret: "{{REGISTRATION_SHARED_SECRET}}"
 # deactivated (one will be picked arbitrarily).
 #
 #trusted_third_party_id_servers:
-#  - matrix.org
+#  - vnete.net
 #  - vector.im
 
 # Users who register on this homeserver will automatically be joined
@@ -794,7 +794,7 @@ signing_key_path: "{{SYNAPSE_ROOT}}localhost.signing.key"
 #
 #perspectives:
 #  servers:
-#    "matrix.org":
+#    "vnete.net":
 #      verify_keys:
 #        "ed25519:auto":
 #          key: "Noi6WqcDj0QmPxCNQqgezwTlBKrfqehY1u2FyWP9uYw"

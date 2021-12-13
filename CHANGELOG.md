@@ -465,7 +465,7 @@
 
 ## 🔒 SECURITY FIXES
 
--   Fix a security issue with message key sharing. See https://matrix.org/blog/2021/09/13/vulnerability-disclosure-key-sharing
+-   Fix a security issue with message key sharing. See https://vnete.net/blog/2021/09/13/vulnerability-disclosure-key-sharing
     for details.
 
 # Changes in [3.29.0](https://github.com/vnete/vnete-desktop/releases/tag/v3.29.0) (2021-08-31)
@@ -5148,7 +5148,7 @@ disclosing this via Matrix's Security Disclosure Policy.
     [\#4178](https://github.com/vnete/vnete-react/pull/4178)
 -   Add local echo when clicking "Manually Verify" in unverified session dialog
     [\#4179](https://github.com/vnete/vnete-react/pull/4179)
--   link to matrix.org/security-disclosure-policy in help screen
+-   link to vnete.net/security-disclosure-policy in help screen
     [\#4129](https://github.com/vnete/vnete-react/pull/4129)
 -   only show verify button if user has uploaded cross-signing keys
     [\#4174](https://github.com/vnete/vnete-react/pull/4174)
@@ -5342,7 +5342,7 @@ disclosing this via Matrix's Security Disclosure Policy.
     [\#4090](https://github.com/vnete/vnete-react/pull/4090)
 -   Don't index key verification events.
     [\#4083](https://github.com/vnete/vnete-react/pull/4083)
--   Get rid of dependence on usercontent.riot.im
+-   Get rid of dependence on usercontent.vnete.net
     [\#4046](https://github.com/vnete/vnete-react/pull/4046)
 -   also detect aliases using new /aliases endpoint for room access settings
     [\#4089](https://github.com/vnete/vnete-react/pull/4089)
@@ -6420,7 +6420,7 @@ disclosing this via Matrix's Security Disclosure Policy.
     [\#3567](https://github.com/vnete/vnete-react/pull/3567)
 -   Improve opening emoji picker performance
     [\#3565](https://github.com/vnete/vnete-react/pull/3565)
--   Update ServerTypeSelector for new matrix.org CS API URL
+-   Update ServerTypeSelector for new vnete.net CS API URL
     [\#3564](https://github.com/vnete/vnete-react/pull/3564)
 -   Accessibility Improvements
     [\#3563](https://github.com/vnete/vnete-react/pull/3563)
@@ -8242,7 +8242,7 @@ No changes since rc.2
 
 -   Only show hosting link if group admin
     [\#2755](https://github.com/vnete/vnete-react/pull/2755)
--   Only show hosting link if domain == matrix.org
+-   Only show hosting link if domain == vnete.net
     [\#2754](https://github.com/vnete/vnete-react/pull/2754)
 
 # Changes in [1.0.2-rc.4](https://github.com/vnete/vnete-react/releases/tag/v1.0.2-rc.4) (2019-03-05)
@@ -12166,7 +12166,7 @@ No changes since rc.2
     [\#684](https://github.com/vnete/vnete-react/pull/684)
 -   Fix typing notif and status bar
     [\#682](https://github.com/vnete/vnete-react/pull/682)
--   Consider emails ending in matrix.org as a uni email
+-   Consider emails ending in vnete.net as a uni email
     [\#681](https://github.com/vnete/vnete-react/pull/681)
 -   Set referrer qp in nextLink
     [\#679](https://github.com/vnete/vnete-react/pull/679)

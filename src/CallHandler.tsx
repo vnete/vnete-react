@@ -686,13 +686,13 @@ export default class CallHandler extends EventEmitter {
                 ) }</p>
                 <p>{ _t(
                     "Alternatively, you can try to use the public server at " +
-                    "<code>turn.matrix.org</code>, but this will not be as reliable, and " +
+                    "<code>api.vnete.net</code>, but this will not be as reliable, and " +
                     "it will share your IP address with that server. You can also manage " +
                     "this in Settings.",
                     null, { code },
                 ) }</p>
             </div>,
-            button: _t('Try using turn.matrix.org'),
+            button: _t('Try using api.vnete.net'),
             cancelButton: _t('OK'),
             onFinished: (allow) => {
                 SettingsStore.setValue("fallbackICEServerAllowed", null, SettingLevel.DEVICE, allow);

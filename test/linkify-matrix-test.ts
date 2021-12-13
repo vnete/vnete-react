@@ -17,13 +17,13 @@ import { linkify } from '../src/linkify-matrix';
 
 describe('linkify-matrix', () => {
     describe('roomalias', () => {
-        it('properly parses #_foonetic_xkcd:matrix.org', () => {
-            const test = '#_foonetic_xkcd:matrix.org';
+        it('properly parses #_foonetic_xkcd:vnete.net', () => {
+            const test = '#_foonetic_xkcd:vnete.net';
             const found = linkify.find(test);
             expect(found).toEqual(([{
-                href: "#_foonetic_xkcd:matrix.org",
+                href: "#_foonetic_xkcd:vnete.net",
                 type: "roomalias",
-                value: "#_foonetic_xkcd:matrix.org",
+                value: "#_foonetic_xkcd:vnete.net",
             }]));
         });
         it('properly parses #foo:localhost', () => {

@@ -77,7 +77,7 @@ interface IVariable {
 }
 
 const customVariables: Record<string, IVariable> = {
-    // The Matomo installation at https://matomo.riot.im is currently configured
+    // The Matomo installation at https://matomo.vnete.net is currently configured
     // with a limit of 10 custom variables.
     'App Platform': {
         id: 1,
@@ -115,7 +115,7 @@ const customVariables: Record<string, IVariable> = {
     'Homeserver URL': {
         id: 7,
         expl: _td('Your homeserver\'s URL'),
-        example: 'https://matrix.org',
+        example: 'https://vnete.net',
     },
     'Touch Input': {
         id: 8,
@@ -233,7 +233,7 @@ export class Analytics {
         this.setVisitVariable('Chosen Language', getCurrentLanguage());
 
         const hostname = window.location.hostname;
-        if (hostname === 'riot.im') {
+        if (hostname === 'chat.vnete.net') {
             this.setVisitVariable('Instance', window.location.pathname);
         } else if (hostname.endsWith('.vnete.net')) {
             this.setVisitVariable('Instance', hostname.replace('.vnete.net', ''));

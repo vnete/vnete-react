@@ -33,7 +33,7 @@ export class Jitsi {
     private domain: string;
 
     public get preferredDomain(): string {
-        return this.domain || 'jitsi.riot.im';
+        return this.domain || 'video.vnete.net';
     }
 
     /**
@@ -69,7 +69,7 @@ export class Jitsi {
 
     private update = async (discoveryResponse): Promise<any> => {
         // Start with a default of the config's domain
-        let domain = (SdkConfig.get()['jitsi'] || {})['preferredDomain'] || 'jitsi.riot.im';
+        let domain = (SdkConfig.get()['jitsi'] || {})['preferredDomain'] || 'video.vnete.net';
 
         logger.log("Attempting to get Jitsi conference information from homeserver");
         if (discoveryResponse && discoveryResponse[JITSI_WK_PROPERTY]) {

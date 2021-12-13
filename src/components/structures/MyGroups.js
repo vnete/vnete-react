@@ -130,7 +130,7 @@ export default class MyGroups extends React.Component {
                         { _t(
                             'To join an existing community you\'ll have to '+
                             'know its community identifier; this will look '+
-                            'something like <i>+example:matrix.org</i>.',
+                            'something like <i>+example:vnete.net</i>.',
                             {},
                             { 'i': (sub) => <i>{ sub }</i> })
                         }

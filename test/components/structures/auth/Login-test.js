@@ -40,7 +40,7 @@ describe('Login', function() {
 
     function render() {
         return ReactDOM.render(<Login
-            serverConfig={mkServerConfig("https://matrix.org", "https://vector.im")}
+            serverConfig={mkServerConfig("https://vnete.net", "https://vector.im")}
             onLoggedIn={() => {}}
             onRegisterClick={() => {}}
             onServerConfigChange={() => {}}

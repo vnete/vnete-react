@@ -58,9 +58,9 @@ describe("GroupMemberList", function() {
     const usersResponse = {
         chunk: [
             {
-                user_id: "@test:matrix.org",
+                user_id: "@test:vnete.net",
                 displayname: "Test",
-                avatar_url: "mxc://matrix.org/oUxxDyzQOHdVDMxgwFzyCWEe",
+                avatar_url: "mxc://vnete.net/oUxxDyzQOHdVDMxgwFzyCWEe",
                 is_public: true,
                 is_privileged: true,
                 attestation: {},

@@ -18,7 +18,7 @@ import "../skinned-sdk"; // Must be first for skinning to work
 import EditorModel from "../../src/editor/model";
 import { createPartCreator, createRenderer } from "./mock";
 
-const pillChannel = "#riot-dev:matrix.org";
+const pillChannel = "#riot-dev:vnete.net";
 
 describe('editor/range', function() {
     it('range on empty model', function() {
