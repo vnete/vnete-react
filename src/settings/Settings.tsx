@@ -688,7 +688,7 @@ export const SETTINGS: {[setting: string]: ISetting} = {
     },
     "promptBeforeInviteUnknownUsers": {
         supportedLevels: LEVELS_ACCOUNT_SETTINGS,
-        displayName: _td('Prompt before sending invites to potentially invalid matrix IDs'),
+        displayName: _td('Prompt before sending invites to potentially invalid vnete IDs'),
         default: true,
     },
     "showDeveloperTools": {

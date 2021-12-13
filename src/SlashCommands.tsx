@@ -1039,7 +1039,7 @@ export const Commands = [
                 if (isPhoneNumber) {
                     const results = await CallHandler.instance.pstnLookup(this.state.value);
                     if (!results || results.length === 0 || !results[0].userid) {
-                        throw new Error("Unable to find Matrix ID for phone number");
+                        throw new Error("Unable to find Vnete ID for phone number");
                     }
                     userId = results[0].userid;
                 }

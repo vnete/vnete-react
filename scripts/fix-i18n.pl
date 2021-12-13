@@ -60,7 +60,7 @@ Server unavailable, overloaded, or something else went wrong.
 You are already in a call.
 You cannot place VoIP calls in this browser.
 You cannot place a call with yourself.
-Your email address does not appear to be associated with a Matrix ID on this Homeserver.
+Your email address does not appear to be associated with a Vnete ID on this Homeserver.
 Guest users can't upload files. Please register to upload.
 Some of your messages have not been sent.
 This room is private or inaccessible to guests. You may be able to join if you register.
@@ -97,7 +97,7 @@ if ($_ =~ m/^(\s+)"(.*?)"(: *)"(.*?)"(,?)$/) {
         if ($ARGV !~ /(zh_Hans|zh_Hant|th)\.json$/ && $src eq $fixup && $dst !~ /\.$/) {
             print STDERR "fixing up dst: $dst\n";
             $dst .= '.';
-            $sub = 1;            
+            $sub = 1;
         }
 
         if ($sub) {
@@ -105,7 +105,7 @@ if ($_ =~ m/^(\s+)"(.*?)"(: *)"(.*?)"(,?)$/) {
             $dst =~ s/"/\\"/g;
             print qq($indent"$src"$colon"$dst"$comma\n);
             last;
-        }        
+        }
     }
 }
 

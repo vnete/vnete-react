@@ -25,7 +25,7 @@ export default class AuthFooter extends React.Component {
     public render(): React.ReactNode {
         return (
             <div className="mx_AuthFooter">
-                <a href="https://vnete.net" target="_blank" rel="noreferrer noopener">{ _t("powered by Matrix") }</a>
+                <a href="https://vnete.net" target="_blank" rel="noreferrer noopener">{ _t("powered by Vnete") }</a>
             </div>
         );
     }

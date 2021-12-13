@@ -43,7 +43,7 @@ export interface IInviteResult {
  * no option to cancel.
  *
  * @param {string} roomId The ID of the room to invite to
- * @param {string[]} addresses Array of strings of addresses to invite. May be matrix IDs or 3pids.
+ * @param {string[]} addresses Array of strings of addresses to invite. May be vnete IDs or 3pids.
  * @param {function} progressCallback optional callback, fired after each invite.
  * @returns {Promise} Promise
  */

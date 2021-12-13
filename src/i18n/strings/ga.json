@@ -741,7 +741,7 @@
     "Call failed because microphone could not be accessed. Check that a microphone is plugged in and set up correctly.": "Níor glaodh toisc nach raibh rochtain ar mhicreafón. Seiceáil go bhfuil micreafón plugáilte isteach agus curtha ar bun i gceart.",
     "Which rooms would you like to add to this community?": "Cé na seomraí ar mhaith leat a chur leis an bpobal seo?",
     "Invite to Community": "Tabhair cuireadh chun an pobal",
-    "Name or Matrix ID": "Ainm nó ID Matrix",
+    "Name or Vnete ID": "Ainm nó ID Matrix",
     "Invite new community members": "Tabhair cuireadh do baill nua chun an phobail",
     "Who would you like to add to this community?": "Cé ba mhaith leat a chur leis an bpobal seo?",
     "%(weekDayName)s, %(monthName)s %(day)s %(fullYear)s %(time)s": "%(weekDayName)s, %(monthName)s %(day)s %(fullYear)s %(time)s",

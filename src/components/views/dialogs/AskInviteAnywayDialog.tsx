@@ -60,7 +60,7 @@ export default class AskInviteAnywayDialog extends React.Component<IProps> {
                 contentId='mx_Dialog_content'
             >
                 <div id='mx_Dialog_content'>
-                    <p>{ _t("Unable to find profiles for the Matrix IDs listed below - " +
+                    <p>{ _t("Unable to find profiles for the Vnete IDs listed below - " +
                         "would you like to invite them anyway?") }</p>
                     <ul>
                         { errorList }
