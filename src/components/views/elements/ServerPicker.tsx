@@ -43,8 +43,8 @@ const showPickerDialog = (
 const onHelpClick = () => {
     Modal.createTrackedDialog('Custom Server Dialog', '', InfoDialog, {
         title: _t("Server Options"),
-        description: _t("You can use the custom server options to sign into other Matrix servers by specifying " +
-            "a different homeserver URL. This allows you to use Vnete with an existing Matrix account on " +
+        description: _t("You can use the custom server options to sign into other Vnete servers by specifying " +
+            "a different homeserver URL. This allows you to use Vnete with an existing Vnete account on " +
             "a different homeserver."),
         button: _t("Dismiss"),
         hasCloseButton: false,
@@ -79,7 +79,7 @@ const ServerPicker = ({ title, dialogTitle, serverConfig, onServerConfigChange }
     let desc;
     if (serverConfig.hsName === "vnete.net") {
         desc = <span className="mx_ServerPicker_desc">
-            { _t("Join millions for free on the largest public server") }
+            { _t("Professional network of farmers") }
         </span>;
     }
 

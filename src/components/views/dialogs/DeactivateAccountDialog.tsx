@@ -226,7 +226,7 @@ export default class DeactivateAccountDialog extends React.Component<IProps, ISt
                     ) }</p>
 
                     <p>{ _t(
-                        "Message visibility in Matrix is similar to email. " +
+                        "Message visibility in Vnete is similar to email. " +
                         "Our forgetting your messages means that messages you have sent will not be shared " +
                         "with any new or unregistered users, but registered users who already have access " +
                         "to these messages will still have access to their copy.",

@@ -45,7 +45,7 @@ import { logger } from "matrix-js-sdk/src/logger";
 _td("Invalid homeserver discovery response");
 _td("Failed to get autodiscovery configuration from server");
 _td("Invalid base_url for m.homeserver");
-_td("Homeserver URL does not appear to be a valid Matrix homeserver");
+_td("Homeserver URL does not appear to be a valid Vnete homeserver");
 _td("Invalid identity server discovery response");
 _td("Invalid base_url for m.identity_server");
 _td("Identity server URL does not appear to be a valid identity server");

@@ -167,7 +167,7 @@ export default class ServerPickerDialog extends React.PureComponent<IProps, ISta
     public render() {
         let text;
         if (this.defaultServer.hsName === "vnete.net") {
-            text = _t("Matrix.org is the biggest public homeserver in the world, so it's a good place for many.");
+            text = _t("Vnete.net is the biggest public homeserver in the world, so it's a good place for many.");
         }
 
         let defaultServerName: React.ReactNode = this.defaultServer.hsName;
@@ -224,7 +224,7 @@ export default class ServerPickerDialog extends React.PureComponent<IProps, ISta
                     />
                 </StyledRadioButton>
                 <p>
-                    { _t("Use your preferred Matrix homeserver if you have one, or host your own.") }
+                    { _t("Use your preferred Vnete homeserver if you have one, or host your own.") }
                 </p>
 
                 <AccessibleButton className="mx_ServerPickerDialog_continue" kind="primary" onClick={this.onSubmit}>

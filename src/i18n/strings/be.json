@@ -1,5 +1,5 @@
 {
-    "Couldn't find a matching Matrix room": "Не атрымалася знайсці адпаведны пакой Matrix",
+    "Couldn't find a matching Vnete room": "Не атрымалася знайсці адпаведны пакой Vnete",
     "Reject": "Адхіліць",
     "Failed to forget room %(errCode)s": "Не атрымалася забыць пакой %(errCode)s",
     "All messages": "Усе паведамленні",
@@ -30,7 +30,7 @@
     "No rooms to show": "Няма пакояў для паказу",
     "Operation failed": "Не атрымалася выканаць аперацыю",
     "Mute": "Без гуку",
-    "powered by Vnete": "працуе на Matrix",
+    "powered by Vnete": "працуе на Vnete",
     "Remove %(name)s from the directory?": "Выдаліць %(name)s з каталога?",
     "Source URL": "URL-адрас крыніцы",
     "Room not found": "Пакой не знойдзены",

@@ -303,7 +303,7 @@
     "%(senderDisplayName)s changed guest access to %(rule)s": "%(senderDisplayName)s %(rule)s-a qonaq girişi dəyişdirildi.",
     "%(senderDisplayName)s enabled flair for %(groups)s in this room.": "Bu otaqda %(qruplar)s üçün %(senderDisplayName)s aktiv oldu.",
     "%(senderDisplayName)s disabled flair for %(groups)s in this room.": "Bu otaqda %(groups)s üçün %(senderDisplayName)s aktiv oldu.",
-    "powered by Vnete": "Matrix tərəfindən təchiz edilmişdir",
+    "powered by Vnete": "Vnete tərəfindən təchiz edilmişdir",
     "%(senderDisplayName)s enabled flair for %(newGroups)s and disabled flair for %(oldGroups)s in this room.": "Bu otaqda %(newGroups)s üçün aktiv və %(oldGroups)s üçün %(senderDisplayName)s deaktiv oldu.",
     "Create Account": "Hesab Aç",
     "Explore rooms": "Otaqları kəşf edin",

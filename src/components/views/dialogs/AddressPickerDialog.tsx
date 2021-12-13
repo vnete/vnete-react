@@ -44,7 +44,7 @@ const QUERY_USER_DIRECTORY_DEBOUNCE_MS = 200;
 
 const addressTypeName = {
     'mx-user-id': _td("Vnete ID"),
-    'mx-room-id': _td("Matrix Room ID"),
+    'mx-room-id': _td("Vnete Room ID"),
     'email': _td("email address"),
 };
 

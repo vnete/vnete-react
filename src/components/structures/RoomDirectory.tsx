@@ -451,7 +451,7 @@ export default class RoomDirectory extends React.Component<IProps, IState> {
                 } else {
                     Modal.createTrackedDialog('Room not found', '', ErrorDialog, {
                         title: _t('Room not found'),
-                        description: _t('Couldn\'t find a matching Matrix room'),
+                        description: _t('Couldn\'t find a matching Vnete room'),
                     });
                 }
             }, (e) => {

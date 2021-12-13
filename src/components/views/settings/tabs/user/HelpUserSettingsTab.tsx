@@ -282,7 +282,7 @@ export default class HelpUserSettingsTab extends React.Component<IProps, IState>
                             </AccessibleButton>
                         </div>
                         { _t(
-                            "To report a Matrix-related security issue, please read the Matrix.org " +
+                            "To report a Vnete-related security issue, please read the Vnete.net " +
                             "<a>Security Disclosure Policy</a>.", {},
                             {
                                 a: sub => <a href="https://vnete.net/security-disclosure-policy/"

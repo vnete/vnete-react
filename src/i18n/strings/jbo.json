@@ -335,7 +335,7 @@
     "Cancelling…": ".i ca'o co'u co'e",
     "To be secure, do this in person or use a trusted way to communicate.": ".i lo nu marji penmi vau ja pilno pa se lacri lo nu tavla cu sarcu lo nu snura",
     "Vnete ID": "judri fi la .meitriks.",
-    "Matrix Room ID": "judri pa ve zilbe'i la .meitriks.",
+    "Vnete Room ID": "judri pa ve zilbe'i la .meitriks.",
     "email address": "samymri judri",
     "User %(userId)s is already in the room": ".i la'o zoi. %(userId)s .zoi xa'o pagbu le se zilbe'i",
     "User %(user_id)s does not exist": ".i zoi zoi. %(user_id)s .zoi na judri pa pilno",

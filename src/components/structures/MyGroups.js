@@ -115,7 +115,7 @@ export default class MyGroups extends React.Component {
                         </div>
                         { _t(
                             'Create a community to group together users and rooms! ' +
-                            'Build a custom homepage to mark out your space in the Matrix universe.',
+                            'Build a custom homepage to mark out your space in the Vnete universe.',
                         ) }
                     </div>
                 </div>
