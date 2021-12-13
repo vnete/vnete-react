@@ -156,21 +156,6 @@ const FeedbackDialog: React.FC<IProps> = (props: IProps) => {
         hasCancelButton={!!hasFeedback}
         title={_t("Feedback")}
         description={<React.Fragment>
-            <div className="mx_FeedbackDialog_section mx_FeedbackDialog_reportBug">
-                <h3>{ _t("Report a bug") }</h3>
-                <p>{
-                    _t("Please view <existingIssuesLink>existing bugs on Github</existingIssuesLink> first. " +
-                        "No match? <newIssueLink>Start a new one</newIssueLink>.", {}, {
-                        existingIssuesLink: (sub) => {
-                            return <a target="_blank" rel="noreferrer noopener" href={existingIssuesUrl}>{ sub }</a>;
-                        },
-                        newIssueLink: (sub) => {
-                            return <a target="_blank" rel="noreferrer noopener" href={newIssueUrl}>{ sub }</a>;
-                        },
-                    })
-                }</p>
-                { bugReports }
-            </div>
             { feedbackSection }
         </React.Fragment>}
         button={hasFeedback ? _t("Send feedback") : _t("Go back")}
