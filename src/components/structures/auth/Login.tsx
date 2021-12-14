@@ -252,12 +252,12 @@ export default class LoginComponent extends React.PureComponent<IProps, IState> 
                     errorText = (
                         <div>
                             <div>{ _t('Incorrect username and/or password.') }</div>
-                            <div className="mx_Login_smallError">
+                            { /* <div className="mx_Login_smallError">
                                 { _t(
                                     'Please note you are logging into the %(hs)s server, not vnete.net.',
                                     { hs: this.props.serverConfig.hsName },
                                 ) }
-                            </div>
+                            </div> */ }
                         </div>
                     );
                 } else {
