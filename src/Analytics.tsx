@@ -145,10 +145,10 @@ function whitelistRedact(whitelist: string[], str: string): string {
     return '<redacted>';
 }
 
-const UID_KEY = "mx_Riot_Analytics_uid";
-const CREATION_TS_KEY = "mx_Riot_Analytics_cts";
-const VISIT_COUNT_KEY = "mx_Riot_Analytics_vc";
-const LAST_VISIT_TS_KEY = "mx_Riot_Analytics_lvts";
+const UID_KEY = "mx_Vnete_Analytics_uid";
+const CREATION_TS_KEY = "mx_Vnete_Analytics_cts";
+const VISIT_COUNT_KEY = "mx_Vnete_Analytics_vc";
+const LAST_VISIT_TS_KEY = "mx_Vnete_Analytics_lvts";
 
 function getUid(): string {
     try {

@@ -17,14 +17,14 @@ limitations under the License.
 import { isEnumValue } from "../../utils/enums";
 
 export enum DefaultTagID {
-    Invite = "im.vector.fake.invite",
-    Untagged = "im.vector.fake.recent", // legacy: used to just be 'recent rooms' but now it's all untagged rooms
-    Archived = "im.vector.fake.archived",
+    Invite = "net.vnete.fake.invite",
+    Untagged = "net.vnete.fake.recent", // legacy: used to just be 'recent rooms' but now it's all untagged rooms
+    Archived = "net.vnete.fake.archived",
     LowPriority = "m.lowpriority",
     Favourite = "m.favourite",
-    DM = "im.vector.fake.direct",
+    DM = "net.vnete.fake.direct",
     ServerNotice = "m.server_notice",
-    Suggested = "im.vector.fake.suggested",
+    Suggested = "net.vnete.fake.suggested",
 }
 
 export const OrderedDefaultTagIDs = [
