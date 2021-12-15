@@ -2024,8 +2024,8 @@
     "Create community": "Создать сообщество",
     "Private rooms can be found and joined by invitation only. Public rooms can be found and joined by anyone in this community.": "Приватные чата можно найти и присоединиться только по приглашению. Публичные чата могут находить и присоединяться к ним любые участники этого сообщества.",
     "You might enable this if the room will only be used for collaborating with internal teams on your homeserver. This cannot be changed later.": "Вы можете включить это, если чат будет использоваться только для совместной работы с внутренними командами на вашем домашнем сервере. Это не может быть изменено позже.",
-    "You might disable this if the room will be used for collaborating with external teams who have their own homeserver. This cannot be changed later.": "Вы можете отключить это, если чат будет использоваться для совместной работы с внешними командами, у которых есть собственный сервер. Это не может быть изменено позже.",
-    "Block anyone not part of %(serverName)s from ever joining this room.": "Запретить кому-либо, не входящему в %(serverName)s, когда-либо присоединяться к этом чате.",
+    "You might disable this if the room will be used for collaborating with external teams who have their own homeserver. This cannot be changed later.": "Мера безопасности, ограничивающая доступность чата на уровне сервер - сервер.",
+    "Block anyone not part of %(serverName)s from ever joining this room.": "Только участники %(serverName)s смогут присоединяться к этому чату.",
     "There was an error updating your community. The server is unable to process your request.": "Произошла ошибка в обновлении вашего сообщества. Сервер не может обработать ваш запрос.",
     "Update community": "Обновить сообщество",
     "May include members not in %(communityName)s": "Может включать участников, не входящих в %(communityName)s",
@@ -3002,7 +3002,7 @@
     "Show all rooms": "Показать все чаты",
     "Address": "Адрес",
     "e.g. my-space": "например, my-space",
-    "Give feedback.": "Дать отзыв.",
+    "Give feedback.": "Написать отзыв.",
     "Thank you for trying Spaces. Your feedback will help inform the next versions.": "Спасибо, что попробовали союзы. Ваши отзывы помогут при разработке следующих версий.",
     "Spaces feedback": "Отзыв о союзах",
     "Spaces are a new feature.": "Союзы - это новая функция.",
@@ -3265,5 +3265,9 @@
     "This device": "Текущая сессия",
     "Verified devices": "Проверенные устройства",
     "Devices without encryption support": "Устройства без поддержки шифрования",
-    "Rename": "Переименовать"
+    "Rename": "Переименовать",
+    "Start new chat": "Начать диалог",
+    "Invite to space": "Пригласить в союз",
+    "Join public room": "Найти публичный чат",
+    "You can't disable this later. Bridges & most bots won't work yet.": "Вы не сможете отменить шифрование."
 }
