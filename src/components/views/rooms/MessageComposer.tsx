@@ -13,13 +13,18 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-import React, { createRef } from 'react';
+import React, { ComponentProps, createRef } from 'react';
 import classNames from 'classnames';
-import { _t } from '../../../languageHandler';
-import { MatrixClientPeg } from '../../../MatrixClientPeg';
 import { MatrixEvent, IEventRelation } from "matrix-js-sdk/src/models/event";
 import { Room } from "matrix-js-sdk/src/models/room";
 import { RoomMember } from "matrix-js-sdk/src/models/room-member";
+import { RelationType } from 'matrix-js-sdk/src/@types/event';
+import { logger } from "matrix-js-sdk/src/logger";
+import { POLL_START_EVENT_TYPE } from "matrix-js-sdk/src/@types/polls";
+import { makeLocationContent } from "matrix-js-sdk/src/content-helpers";
+
+import { _t } from '../../../languageHandler';
+import { MatrixClientPeg } from '../../../MatrixClientPeg';
 import dis from '../../../dispatcher/dispatcher';
 import { ActionPayload } from "../../../dispatcher/payloads";
 import Stickerpicker from './Stickerpicker';
@@ -48,13 +53,13 @@ import { ComposerInsertPayload } from "../../../dispatcher/payloads/ComposerInse
 import { Action } from "../../../dispatcher/actions";
 import EditorModel from "../../../editor/model";
 import EmojiPicker from '../emojipicker/EmojiPicker';
+import LocationPicker from '../location/LocationPicker';
 import UIStore, { UI_EVENTS } from '../../../stores/UIStore';
 import Modal from "../../../Modal";
-import { RelationType } from 'matrix-js-sdk/src/@types/event';
 import RoomContext from '../../../contexts/RoomContext';
-import { POLL_START_EVENT_TYPE } from "../../../polls/consts";
 import ErrorDialog from "../dialogs/ErrorDialog";
 import PollCreateDialog from "../elements/PollCreateDialog";
+import LocationShareType from "../location/LocationShareType";
 import { SettingUpdatedPayload } from "../../../dispatcher/payloads/SettingUpdatedPayload";
 
 let instanceCount = 0;
@@ -75,10 +80,22 @@ function SendButton(props: ISendButtonProps) {
     );
 }
 
-interface IEmojiButtonProps {
-    addEmoji: (unicode: string) => boolean;
-    menuPosition: any; // TODO: Types
+interface ICollapsibleButtonProps extends ComponentProps<typeof AccessibleTooltipButton> {
     narrowMode: boolean;
+    title: string;
+}
+
+const CollapsibleButton = ({ narrowMode, title, ...props }: ICollapsibleButtonProps) => {
+    return <AccessibleTooltipButton
+        {...props}
+        title={narrowMode ? undefined : title}
+        label={narrowMode ? title : undefined}
+    />;
+};
+
+interface IEmojiButtonProps extends Pick<ICollapsibleButtonProps, "narrowMode"> {
+    addEmoji: (unicode: string) => boolean;
+    menuPosition: AboveLeftOf;
 }
 
 const EmojiButton: React.FC<IEmojiButtonProps> = ({ addEmoji, menuPosition, narrowMode }) => {
@@ -103,11 +120,51 @@ const EmojiButton: React.FC<IEmojiButtonProps> = ({ addEmoji, menuPosition, narr
     // TODO: replace ContextMenuTooltipButton with a unified representation of
     // the header buttons and the right panel buttons
     return <React.Fragment>
-        <AccessibleTooltipButton
+        <CollapsibleButton
             className={className}
             onClick={openMenu}
-            title={!narrowMode && _t('Emoji picker')}
-            label={narrowMode ? _t("Add emoji") : null}
+            narrowMode={narrowMode}
+            title={_t("Add emoji")}
+        />
+
+        { contextMenu }
+    </React.Fragment>;
+};
+
+interface ILocationButtonProps extends Pick<ICollapsibleButtonProps, "narrowMode"> {
+    room: Room;
+    shareLocation: (uri: string, ts: number, type: LocationShareType, description: string) => boolean;
+    menuPosition: AboveLeftOf;
+    narrowMode: boolean;
+}
+
+const LocationButton: React.FC<ILocationButtonProps> = ({ shareLocation, menuPosition, narrowMode }) => {
+    const [menuDisplayed, button, openMenu, closeMenu] = useContextMenu();
+
+    let contextMenu;
+    if (menuDisplayed) {
+        const position = menuPosition ?? aboveLeftOf(button.current.getBoundingClientRect());
+        contextMenu = <ContextMenu {...position} onFinished={closeMenu} managed={false}>
+            <LocationPicker onChoose={shareLocation} onFinished={closeMenu} />
+        </ContextMenu>;
+    }
+
+    const className = classNames(
+        "mx_MessageComposer_button",
+        "mx_MessageComposer_location",
+        {
+            "mx_MessageComposer_button_highlight": menuDisplayed,
+        },
+    );
+
+    // TODO: replace ContextMenuTooltipButton with a unified representation of
+    // the header buttons and the right panel buttons
+    return <React.Fragment>
+        <CollapsibleButton
+            className={className}
+            onClick={openMenu}
+            narrowMode={narrowMode}
+            title={_t("Share location")}
         />
 
         { contextMenu }
@@ -188,7 +245,7 @@ class UploadButton extends React.Component<IUploadButtonProps> {
     }
 }
 
-interface IPollButtonProps {
+interface IPollButtonProps extends Pick<ICollapsibleButtonProps, "narrowMode"> {
     room: Room;
 }
 
@@ -220,10 +277,11 @@ class PollButton extends React.PureComponent<IPollButtonProps> {
 
     render() {
         return (
-            <AccessibleTooltipButton
+            <CollapsibleButton
                 className="mx_MessageComposer_button mx_MessageComposer_poll"
                 onClick={this.onCreateClick}
-                title={_t('Create poll')}
+                narrowMode={this.props.narrowMode}
+                title={_t("Create poll")}
             />
         );
     }
@@ -447,6 +505,39 @@ export default class MessageComposer extends React.Component<IProps, IState> {
         return true;
     };
 
+    private textForLocation = (
+        uri: string,
+        ts: number,
+        description: string | null,
+    ): string => {
+        const date = new Date(ts).toISOString();
+        // TODO: translation, as soon as we've re-worded this better
+        if (description) {
+            return `${description} at ${uri} as of ${date}`;
+        } else {
+            return `Location at ${uri} as of ${date}`;
+        }
+    };
+
+    private shareLocation = (
+        uri: string,
+        ts: number,
+        _type: LocationShareType,
+        description: string | null,
+    ): boolean => {
+        if (!uri) return false;
+        try {
+            const text = this.textForLocation(uri, ts, description);
+            MatrixClientPeg.get().sendMessage(
+                this.props.room.roomId,
+                makeLocationContent(text, uri, ts, description),
+            );
+        } catch (e) {
+            logger.error("Error sending location:", e);
+        }
+        return true;
+    };
+
     private sendMessage = async () => {
         if (this.state.haveRecording && this.voiceRecordingButton.current) {
             // There shouldn't be any text message to send when a voice recording is active, so
@@ -503,17 +594,24 @@ export default class MessageComposer extends React.Component<IProps, IState> {
         if (!this.state.haveRecording) {
             if (this.state.showPollsButton) {
                 buttons.push(
-                    <PollButton key="polls" room={this.props.room} />,
+                    <PollButton key="polls" room={this.props.room} narrowMode={this.state.narrowMode} />,
                 );
             }
             uploadButtonIndex = buttons.length;
             buttons.push(
-                <UploadButton
-                    key="controls_upload"
-                    roomId={this.props.room.roomId}
-                    relation={this.props.relation}
-                />,
+                <UploadButton key="controls_upload" roomId={this.props.room.roomId} relation={this.props.relation} />,
             );
+            if (SettingsStore.getValue("feature_location_share")) {
+                buttons.push(
+                    <LocationButton
+                        key="location"
+                        room={this.props.room}
+                        shareLocation={this.shareLocation}
+                        menuPosition={menuPosition}
+                        narrowMode={this.state.narrowMode}
+                    />,
+                );
+            }
             buttons.push(
                 <EmojiButton key="emoji_button" addEmoji={this.addEmoji} menuPosition={menuPosition} narrowMode={this.state.narrowMode} />,
             );
@@ -535,53 +633,58 @@ export default class MessageComposer extends React.Component<IProps, IState> {
                 />,
             );
         }
+
+        // XXX: the recording UI does not work well in narrow mode, so we hide this button for now
         if (!this.state.haveRecording && !this.state.narrowMode) {
             buttons.push(
-                <AccessibleTooltipButton
+                <CollapsibleButton
                     key="voice_message_send"
                     className="mx_MessageComposer_button mx_MessageComposer_voiceMessage"
                     onClick={() => this.voiceRecordingButton.current?.onRecordStartEndClick()}
                     title={_t("Send voice message")}
+                    narrowMode={this.state.narrowMode}
                 />,
             );
         }
 
         if (!this.state.narrowMode) {
             return buttons;
-        } else {
-            const classnames = classNames({
-                mx_MessageComposer_button: true,
-                mx_MessageComposer_buttonMenu: true,
-                mx_MessageComposer_closeButtonMenu: this.state.isMenuOpen,
-            });
-
-            return <>
-                { buttons[uploadButtonIndex] }
-                <AccessibleTooltipButton
-                    className={classnames}
-                    onClick={this.toggleButtonMenu}
-                    title={_t("More options")}
-                    tooltip={false}
-                />
-                { this.state.isMenuOpen && (
-                    <ContextMenu
-                        onFinished={this.toggleButtonMenu}
-                        {...menuPosition}
-                        menuPaddingRight={10}
-                        menuPaddingTop={5}
-                        menuPaddingBottom={5}
-                        menuWidth={150}
-                        wrapperClassName="mx_MessageComposer_Menu"
-                    >
-                        { buttons.slice(1).map((button, index) => (
-                            <MenuItem className="mx_CallContextMenu_item" key={index} onClick={this.toggleButtonMenu}>
-                                { button }
-                            </MenuItem>
-                        )) }
-                    </ContextMenu>
-                ) }
-            </>;
         }
+
+        const classnames = classNames({
+            mx_MessageComposer_button: true,
+            mx_MessageComposer_buttonMenu: true,
+            mx_MessageComposer_closeButtonMenu: this.state.isMenuOpen,
+        });
+
+        // we render the uploadButton at top level as it is a very common interaction, splice it out of the rest
+        const [uploadButton] = buttons.splice(uploadButtonIndex, 1);
+        return <>
+            { uploadButton }
+            <AccessibleTooltipButton
+                className={classnames}
+                onClick={this.toggleButtonMenu}
+                title={_t("More options")}
+                tooltip={false}
+            />
+            { this.state.isMenuOpen && (
+                <ContextMenu
+                    onFinished={this.toggleButtonMenu}
+                    {...menuPosition}
+                    menuPaddingRight={10}
+                    menuPaddingTop={5}
+                    menuPaddingBottom={5}
+                    menuWidth={150}
+                    wrapperClassName="mx_MessageComposer_Menu"
+                >
+                    { buttons.map((button, index) => (
+                        <MenuItem className="mx_CallContextMenu_item" key={index} onClick={this.toggleButtonMenu}>
+                            { button }
+                        </MenuItem>
+                    )) }
+                </ContextMenu>
+            ) }
+        </>;
     }
 
     render() {
