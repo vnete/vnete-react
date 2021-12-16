@@ -3204,7 +3204,7 @@
     "Resetting your verification keys cannot be undone. After resetting, you won't have access to old encrypted messages, and any friends who have previously verified you will see security warnings until you re-verify with them.": "Сброс ключей проверки нельзя отменить. После сброса вы не сможете получить доступ к старым зашифрованным сообщениям, а друзья, которые ранее проверили вас, будут видеть предупреждения о безопасности, пока вы не пройдете повторную проверку.",
     "Skip verification for now": "Пока пропустить проверку",
     "I'll verify later": "Я проверю позже",
-    "Verify with another login": "Проверить с помощью другого логина",
+    "Verify with another login": "Проверить с помощью другого устройства, где Вы уже войшли в аккаунт",
     "Verify with Security Key": "Проверить с помощью ключа безопасности",
     "Verify with Security Key or Phrase": "Проверка с помощью ключа безопасности или фразы",
     "Proceed with reset": "Выполнить сброс",
