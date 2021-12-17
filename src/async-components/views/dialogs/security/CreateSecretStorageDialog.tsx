@@ -539,7 +539,7 @@ export default class CreateSecretStorageDialog extends React.PureComponent<IProp
                 "backing up encryption keys on your server.",
             ) }</p>
             <div className="mx_CreateSecretStorageDialog_primaryContainer" role="radiogroup">
-                { optionKey }
+                {/* { optionKey } */}
                 { optionPassphrase }
             </div>
             <DialogButtons
