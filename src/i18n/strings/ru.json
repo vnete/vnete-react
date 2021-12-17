@@ -2752,7 +2752,7 @@
     "Enter your Security Phrase a second time to confirm it.": "Введите секретную фразу второй раз, чтобы подтвердить ее.",
     "Space Autocomplete": "Автозаполнение союза",
     "Without verifying, you won’t have access to all your messages and may appear as untrusted to others.": "Без проверки вы не сможете получить доступ ко всем своим сообщениям и можете показаться другим людям недоверенным.",
-    "Verify your identity to access encrypted messages and prove your identity to others.": "Проверьте свою личность, чтобы получить доступ к зашифрованным сообщениям и доказать свою личность другим.",
+    "Verify your identity to access encrypted messages and prove your identity to others.": "Проверьте подлинность владения аккаунтом, чтобы получить доступ к зашифрованным сообщениям и создать доверенную сессию.",
     "Use another login": "Подтвердите с другого устройства, где Вы уже вошли в свой аккаунт",
     "Please choose a strong password": "Пожалуйста, выберите надежный пароль",
     "Currently joining %(count)s rooms|one": "Сейчас вы присоединяетесь к %(count)s чату",
