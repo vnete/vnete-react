@@ -377,7 +377,7 @@ export default class SecureBackupPanel extends React.PureComponent<{}, IState> {
                 </tr>
                 <tr>
                     <td>{ _t("Algorithm:") }</td>
-                    <td>{ backupInfo.algorithm }</td>
+                    <td>{ backupInfo.algorithm.substring(9) }</td>
                 </tr>
             </>;
 
