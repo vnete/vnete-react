@@ -1911,7 +1911,7 @@
     "Warning: Your personal data (including encryption keys) is still stored in this session. Clear it if you're finished using this session, or want to sign in to another account.": "Предупреждение: ваши личные данные (включая ключи шифрования) всё ещё хранятся в этой сессии. Удалите их, если вы хотите завершить эту сессию или войти в другую учетную запись.",
     "Confirm encryption setup": "Подтвердите настройку шифрования",
     "Click the button below to confirm setting up encryption.": "Нажмите кнопку ниже, чтобы подтвердить настройку шифрования.",
-    "Safeguard against losing access to encrypted messages & data by backing up encryption keys on your server.": "Защитите себя от потери доступа к зашифрованным сообщениям и данным, создав резервные копии ключей шифрования на вашем сервере.",
+    "Safeguard against losing access to encrypted messages & data by backing up encryption keys on your server.": "Защитите себя от потери доступа к зашифрованным сообщениям и данным, создав резервные копии ключей шифрования.",
     "Generate a Security Key": "Создание ключа безопасности",
     "We’ll generate a Security Key for you to store somewhere safe, like a password manager or a safe.": "Мы создадим ключ безопасности для вас, чтобы вы могли хранить его в надежном месте, например, в менеджере паролей или сейфе.",
     "Enter a Security Phrase": "Введите секретную фразу",
@@ -2801,9 +2801,9 @@
     "View source": "Исходный код",
     "Forward": "Переслать",
     "If you reset everything, you will restart with no trusted sessions, no trusted users, and might not be able to see past messages.": "Если вы сбросите все настройки, вы перезагрузитесь без доверенных сессий, без доверенных пользователей и, возможно, не сможете просматривать прошлые сообщения.",
-    "Only do this if you have no other device to complete verification with.": "Делайте это только в том случае, если у вас нет другого устройства для завершения проверки.",
+    "Only do this if you have no other device to complete verification with.": "Делайте это только в том случае, если у вас нет другого устройства для осуществления проверки.",
     "Reset everything": "Сбросить все",
-    "Forgotten or lost all recovery methods? <a>Reset all</a>": "Забыли или потеряли все методы восстановления? <a>Сбросить все</a>",
+    "Forgotten or lost all recovery methods? <a>Reset all</a>": "Забыли или потеряли секретную фразу? <a>Сбросить всё</a>",
     "Verify other login": "Подтвердить другой вход",
     "Settings - %(spaceName)s": "Настройки - %(spaceName)s",
     "Reset event store": "Сброс хранилища событий",
@@ -3270,5 +3270,10 @@
     "Start new chat": "Начать диалог",
     "Invite to space": "Пригласить в союз",
     "Join public room": "Найти публичный чат",
-    "You can't disable this later. Bridges & most bots won't work yet.": "Вы не сможете отменить шифрование."
+    "You can't disable this later. Bridges & most bots won't work yet.": "Вы не сможете отменить шифрование.",
+    "Files": "Файлы",
+    "Recently viewed": "Недавно просмотренные",
+    "Enter a security phrase only you know, as it's used to safeguard your data. To be secure, you shouldn't re-use your account password.": "Для защиты ваших данных придумайте секретную фразу на латинском (английскими буквами и цифрами). Пожалуйста, не используйте одинаковые пароли для входа в аккаунт и шифрования.",
+    "To view all keyboard shortcuts, <a>click here</a>.": "Чтобы увидеть комбинации горячих клавиш, <a>нажмите сюда</a>.",
+    "Use high contrast": "Режим высокой контрастности"
 }
